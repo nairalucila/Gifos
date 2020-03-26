@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\CSS\vista-normal.css">
+    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9dd00af5f8.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
+    <title>Gifos</title>
+</head>
+
+<body>
+    <header>
+
+        <!-- seccion 1 -->
+        <section class="block-title">
+            <span> Bienvenidos/as a Guifos.com------Donde los Guifs están</span>
+        </section>
+
+        <!-- logo y botones -->
+
+        <section class="encabezado">
+
+            <div>
+                <img src="assets\gifOF_logo.png" alt="logo-normal">
+            </div>
+
+            <div class="botones">
+
+                <!-- crear guif -->
+                <div class="button-create-style">
+                    <a href="#"></a><button id="buton-create" class="button-create">Crear Guifos</button></a>
+                </div>
+
+                <!-- boton select -->
+
+                <div class="selectdiv ">
+                    <label>
+                        <select>
+                            <option selected> Themes </option>
+                            <option>Sailor Day</option>
+                            <option>Sailor Night</option>
+
+                        </select>
+                    </label>
+                </div>
+
+
+                <!-- <select class="button-selection" type="select" name="theme"><button name="theme"
+                        class="button-selection">Theme</button>
+                    <option>Sailor Day</option>
+                    <option>Sailor Night</option>
+                </select> -->
+
+                <!-- panel mi guif -->
+                <div class="miGuifos">
+                    <a class="mis-guifos-a" href="#"><span class="m">M</span>is Guifos</a>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- buscador -->
+
+
+    </header>
+
+    <section class="searcher-title">
+        <span>Buscar</span>
+
+        <form>
+            <label for="desplegable">
+            <div class="searcher">
+                <input type="search" id="miBusqueda" name="q" autocomplete="off"
+                    placeholder="BuscarBusca gifs, hashtags, temas, busca lo que quieras…">
+                <button id="buscador" class="send"> <i class="fas fa-search"></i> Buscar</button>
+            </div>
+            
+            <div class="desplegable" id="desplegable">
+                 
+                <button class="desplegable_boton" id="desplegable_uno"><span>
+                     Resultado de búsqueda sugerido </span></button>
+                 <button class="desplegable_boton" id="desplegable_dos"> <span>Un resultado similar de búsqueda </span> </button>
+                 <button class="desplegable_boton" id="desplegable_tres"> <span> Y otro más </span> </button>
+
+                </label>
+
+
+            </div>
+        </form>
+
+    </section>
+
+    
+
+    <!-- sugeridos -->
+
+    <div class="suggest">
+        <p>Hoy te sugerimos</p>
+    </div>
+
+
+    <!-- grilla 1 -->
+
+    <section class="container-grid" id="grilla-sugeridos">
+
+        <div class="card" id="card">
+
+            <div class="card-one">
+                <span>Texto</span>
+                <button class="boton-cerrar">X</button>
+            </div>
+
+            <img width="300" src="" />
+
+            <button class="boton-grid">Ver mas</button>
+
+        </div>
+
+        <div class="card">
+            <div class="card-one">
+                <span>Texto</span>
+                <button class="boton-cerrar">X</button>
+            </div>
+
+            <img width="300" src="" />
+
+            <button class="boton-grid">Ver mas</button>
+        </div>
+
+        <div class="card">
+            <div class="card-one">
+
+                <span>Texto</span>
+                <button class="boton-cerrar">X</button>
+
+            </div>
+
+            <img width="300" src="" />
+
+            <button class="boton-grid">Ver mas</button>
+
+        </div>
+
+        <div class="card">
+            <div class="card-one">
+
+                <span>Texto</span>
+                <button class="boton-cerrar">X</button>
+
+            </div>
+
+            <img width="300" src="" />
+
+            <button class="boton-grid">Ver mas</button>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- tendencias -->
+
+    <section class="trend">
+        <p>Tendencias</p>
+
+        <!-- grilla-2 -->
+
+        <section class="container-grid" id="grillaTendencia">
+
+            <div class="card_t">
+
+
+            </div>
+
+            <div class="card_t">
+
+            </div>
+
+            <div class="card_t">
+
+
+            </div>
+
+            <div class="card_t">
+
+
+            </div>
+
+
+            <!-- fin de section 2.1 comienzo del 2.2-->
+
+
+
+            <div class="card_t">
+
+
+            </div>
+
+            <div class="card_t">
+
+            </div>
+
+            <div class="card_t">
+
+
+            </div>
+
+            <div class="card_t">
+
+
+            </div>
+
+
+        </section>
+
+        <!-- script -->
+
+        <script src="/JS/guifos-principal.js"></script>
+
+        <!-- <script>
+            var button = document.getElementById('miBusqueda');
+
+            button.addEventListener('onclick', function () {
+                alert('hiciste click bech')
+            })
+        </script> -->
+</body>
+
+
+</html>
