@@ -23,6 +23,30 @@ function clickBotonBuscar(evento) {
   traerGifsBuscador(valorInput);
 }
 
+//Fetch Random
+
+function gifsRandom(){
+
+  let urlSearchRandom = 'https://api.giphy.com/v1/gifs/random?api_key=DsV5wrnJyENgZWApbRea3zpRa7YSeHgd&tag=&rating=G';
+
+fetch(urlSearchRandom)
+.then( function (response){
+  return response.json();
+  })
+
+  .then( function(random){
+
+    let gifs = random.data;
+    console.log(gifs);
+
+  })
+
+.catch(function(error){
+  console.log(error);
+})
+
+}
+
 
 function traerGifsBuscador(valor) {
 
@@ -35,7 +59,8 @@ function traerGifsBuscador(valor) {
     .then( (param) =>  {
       // let imagen = param.data[0].images.downsized.url; // string q es una url y la guarda en test
      
-      
+      console.log('esto quiero ver' + param.data)
+
       let imagenes = param.data;
       
       for (let i = 0; i < grillaSugeridos.children.length; i++) {
@@ -48,10 +73,13 @@ function traerGifsBuscador(valor) {
         //console.log(div, 'lol');
      
       };
-      
-         
-      
-    for (let j = 0; j < titulosSugeridos.children.length; j++) {
+             
+      //elemento[j].child.algo
+      //elemento.children.children   o elemento.children[]
+      //solo trabajo con el children
+      //queryselectorall(.padre span:nth child (éleccion
+      ))
+    for (let j = 0; j < titulosSugeridos; j++) {
         
          const titulo = titulosSugeridos.children[j];
         console.log(titulo);
@@ -60,9 +88,7 @@ function traerGifsBuscador(valor) {
         //console.log(titulo, 'lol');
       }
 
-      
-
-      
+            
 
       //ACA TENGO QUE HACER LO DEL TEXTO
 
