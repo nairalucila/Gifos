@@ -13,8 +13,8 @@ body {
   display: block;
   width: 100%;
   height: 32px;
-  background-image: -webkit-gradient(linear, left top, right top, from(#4180F6), to(#F7C9F3));
-  background-image: linear-gradient(to right, #4180F6, #F7C9F3);
+  background-image: -webkit-gradient(linear, left top, right top, from(#4180f6), to(#f7c9f3));
+  background-image: linear-gradient(to right, #4180f6, #f7c9f3);
   border: solid 0.5px;
   border-color: black;
   margin: auto;
@@ -23,7 +23,7 @@ body {
 .block-title span {
   color: white;
   margin: 20px 0 0 10px;
-  font-family: 'Chakra Petch';
+  font-family: "Chakra Petch";
 }
 
 .encabezado {
@@ -34,191 +34,9 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 3rem;
+  height: 120px;
 }
 
-.selectdiv {
-  position: relative;
-  min-width: 144px;
-  height: 36px;
-  bottom: 5px;
-}
-
-.selectdiv:after {
-  content: '\f078';
-  font: normal normal normal 17px/1 FontAwesome;
-  color: black;
-  right: 11px;
-  top: 6px;
-  height: 20px;
-  padding: 10px 0px 0px 8px;
-  border-left: 1px solid black;
-  position: absolute;
-  pointer-events: none;
-}
-
-/* IE11 hide native button (thanks Matt!) */
-select::-ms-expand {
-  display: none;
-}
-
-.selectdiv select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  /* Add some styling */
-  display: block;
-  width: 100%;
-  max-width: 144px;
-  height: 36px;
-  float: right;
-  margin: 5px 0px;
-  padding: 0px 24px;
-  font-size: 16px;
-  line-height: 1.75;
-  color: #333;
-  background-image: none;
-  -ms-word-break: normal;
-  word-break: normal;
-  background: #F7C9F3;
-  border: 1px solid #110038;
-  -webkit-box-shadow: inset -1px -1px 0 0 #997D97;
-          box-shadow: inset -1px -1px 0 0 #997D97;
-}
-
-.button-create:hover {
-  background: #E6BBE2;
-  border: 1px solid #110038;
-  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
-          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
-  width: 140px;
-  height: 32px;
-  border: solid 1px;
-  border-style: dotted;
-}
-
-.searcher-title {
-  display: block;
-  width: 1194px;
-  height: 24px;
-  margin: auto;
-  background-image: -webkit-gradient(linear, left top, right top, from(#4180F6), to(#F7C9F3));
-  background-image: linear-gradient(to right, #4180F6, #F7C9F3);
-  border: solid 2px;
-  border-color: white;
-  margin-bottom: 200px;
-}
-
-.searcher-title span {
-  color: white;
-  margin: 4px;
-  font-family: 'Chakra Petch';
-}
-
-.searcher {
-  display: block;
-  background: #E6E6E6;
-  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-  height: 65px;
-}
-
-.searcher input {
-  height: 32px;
-  width: 1057px;
-  margin: 1rem 0 0 1rem;
-  background: #FFFFFF;
-  border: 1px solid #979797;
-  -webkit-box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #6d6d6d;
-          box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #6d6d6d;
-}
-
-.desplegable {
-  display: none;
-  background: #E6E6E6;
-  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-  height: 137px;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.desplegable_boton {
-  width: 1057px;
-  height: 36px;
-  text-align: left;
-  margin-left: 1rem;
-  background: #F0F0F0;
-  border: 1px solid #808080;
-  -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
-          box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
-  margin-top: 6px;
-}
-
-.desplegable_boton span {
-  margin-left: 1rem;
-  color: black;
-  font-size: 15px;
-}
-
-.send:hover {
-  background-color: #e6bbe2;
-  border: 1px solid #110038;
-  border-style: dotted;
-  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-}
-
-::-webkit-input-placeholder {
-  padding-left: 15px;
-  color: #B4B4B4;
-  font-family: 'Chakra Petch';
-  opacity: 0.8;
-}
-
-:-ms-input-placeholder {
-  padding-left: 15px;
-  color: #B4B4B4;
-  font-family: 'Chakra Petch';
-  opacity: 0.8;
-}
-
-::-ms-input-placeholder {
-  padding-left: 15px;
-  color: #B4B4B4;
-  font-family: 'Chakra Petch';
-  opacity: 0.8;
-}
-
-::placeholder {
-  padding-left: 15px;
-  color: #B4B4B4;
-  font-family: 'Chakra Petch';
-  opacity: 0.8;
-}
-
-.send {
-  width: 102px;
-  height: 32px;
-  cursor: pointer;
-  background-color: #e6e6e6;
-  border: 1px solid #808080;
-  -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4;
-          box-shadow: inset -1px -1px 0 0 #B4B4B4;
-}
-
-/**.botones a {
-     text-decoration: none;
-     font-family: $font-stack;
-     font-size: 16px;
-     color: #110038;
-     letter-spacing: 0;
-     line-height: 18px;
- }**/
 .botones {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -229,13 +47,14 @@ select::-ms-expand {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-bottom: 2rem;
 }
 
 .button-create {
-  background: #F7C9F3;
+  background: #f7c9f3;
   border: 1px solid #110038;
-  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
-          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
   height: 36px;
   width: 144px;
   font-family: "Chakra Petch";
@@ -252,9 +71,92 @@ select::-ms-expand {
   height: 35px;
 }
 
+.button-create:hover {
+  background: #e6bbe2;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  width: 140px;
+  height: 32px;
+  border: solid 1px;
+  border-style: dotted;
+}
+
 .button-create > a {
   text-decoration: none;
   color: #110038;
+}
+
+.boton_selection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 101px;
+}
+
+.contenedor_uno {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.boton_tema {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  height: 36px;
+  width: 144px;
+  font-family: "Chakra Petch";
+  font-size: 16px;
+  text-decoration: none;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+}
+
+.divflechas {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  width: 36px;
+  height: 34px;
+  margin-right: 12px;
+  text-align: center;
+}
+
+.imagen-select {
+  padding-top: 14px;
+}
+
+.temas {
+  width: 182px;
+  background-color: #e6e6e6;
+  height: 102px;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 5px;
+}
+
+.sailor_botones {
+  height: 36px;
+  width: 150px;
+  text-align: left;
+  padding-left: 2px;
+}
+
+.sailor_botones span {
+  font-family: "Chakra Petch";
+  font-size: 16px;
 }
 
 .miGuifos {
@@ -284,11 +186,126 @@ select::-ms-expand {
   color: black;
 }
 
-.button-selection {
-  background: #F7C9F3;
+.searcher-title {
+  display: block;
+  width: 1194px;
+  height: 24px;
+  margin: auto;
+  background-image: -webkit-gradient(linear, left top, right top, from(#4180f6), to(#f7c9f3));
+  background-image: linear-gradient(to right, #4180f6, #f7c9f3);
+  border: solid 2px;
+  border-color: white;
+  margin-bottom: 200px;
+}
+
+.searcher-title span {
+  color: white;
+  margin: 4px;
+  font-family: "Chakra Petch";
+}
+
+.searcher {
+  display: block;
+  background: #e6e6e6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  height: 65px;
+}
+
+.searcher input {
+  height: 32px;
+  width: 1057px;
+  margin: 1rem 0 0 1rem;
+  background: #ffffff;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #6d6d6d;
+          box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #6d6d6d;
+}
+
+.desplegable {
+  display: none;
+  background: #e6e6e6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  height: 137px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.desplegable_boton {
+  width: 1057px;
+  height: 36px;
+  text-align: left;
+  margin-left: 1rem;
+  background: #f0f0f0;
+  border: 1px solid #808080;
+  -webkit-box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+  margin-top: 6px;
+}
+
+.desplegable_boton span {
+  margin-left: 1rem;
+  color: black;
+  font-size: 15px;
+}
+
+.send:hover {
+  background-color: #e6bbe2;
   border: 1px solid #110038;
-  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
-          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+  border-style: dotted;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+}
+
+::-webkit-input-placeholder {
+  padding-left: 15px;
+  color: #b4b4b4;
+  font-family: "Chakra Petch";
+  opacity: 0.8;
+}
+
+:-ms-input-placeholder {
+  padding-left: 15px;
+  color: #b4b4b4;
+  font-family: "Chakra Petch";
+  opacity: 0.8;
+}
+
+::-ms-input-placeholder {
+  padding-left: 15px;
+  color: #b4b4b4;
+  font-family: "Chakra Petch";
+  opacity: 0.8;
+}
+
+::placeholder {
+  padding-left: 15px;
+  color: #b4b4b4;
+  font-family: "Chakra Petch";
+  opacity: 0.8;
+}
+
+.send {
+  width: 102px;
+  height: 32px;
+  cursor: pointer;
+  background-color: #e6e6e6;
+  border: 1px solid #808080;
+  -webkit-box-shadow: inset -1px -1px 0 0 #b4b4b4;
+          box-shadow: inset -1px -1px 0 0 #b4b4b4;
+}
+
+.button-selection {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
   height: 36px;
   width: 144px;
   font-family: "Chakra Petch";
@@ -308,7 +325,7 @@ select::-ms-expand {
 
 .suggest p {
   padding: 5px;
-  font-family: 'Chakra Petch';
+  font-family: "Chakra Petch";
 }
 
 .trend {
@@ -324,7 +341,7 @@ select::-ms-expand {
 
 .trend p {
   padding: 5px;
-  font-family: 'Chakra Petch';
+  font-family: "Chakra Petch";
 }
 
 .container-grid {
@@ -343,16 +360,16 @@ select::-ms-expand {
   width: 288px;
   height: 313px;
   margin: 5px;
-  background-color: #997D97;
-  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  background-color: #997d97;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   border: solid 1px;
-  border-color: #FFFFFF;
+  border-color: #ffffff;
 }
 
 .card-one {
-  background-image: -webkit-gradient(linear, left top, right top, from(#4180F6), to(#F7C9F3));
-  background-image: linear-gradient(to right, #4180F6, #F7C9F3);
+  background-image: -webkit-gradient(linear, left top, right top, from(#4180f6), to(#f7c9f3));
+  background-image: linear-gradient(to right, #4180f6, #f7c9f3);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -360,10 +377,10 @@ select::-ms-expand {
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 27px;
-  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   border: solid 1px;
-  border-color: #FFFFFF;
+  border-color: #ffffff;
 }
 
 .card-one span {
@@ -386,10 +403,10 @@ select::-ms-expand {
 .boton-grid {
   width: 100px;
   height: 36px;
-  background: #4180F6;
-  border: 1px solid #4C2F99;
-  -webkit-box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
-          box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+  background: #4180f6;
+  border: 1px solid #4c2f99;
+  -webkit-box-shadow: inset -2px -2px 0 0 #284f99, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #284f99, inset 2px 2px 0 0 #ffffff;
   color: white;
   font-family: "Chakra Petch";
   font-size: 16px;
@@ -399,9 +416,9 @@ select::-ms-expand {
 }
 
 .boton-grid:hover {
-  background: #3A72DB;
-  -webkit-box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
-          box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+  background: #3a72db;
+  -webkit-box-shadow: inset -2px -2px 0 0 #284f99, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #284f99, inset 2px 2px 0 0 #ffffff;
   cursor: pointer;
   border-style: dotted;
   border: 1px solid #110038;
@@ -412,10 +429,10 @@ select::-ms-expand {
   width: 288px;
   height: 313px;
   margin: 5px;
-  background-color: #997D97;
-  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  background-color: #997d97;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   border: solid 1px;
-  border-color: #FFFFFF;
+  border-color: #ffffff;
 }
 /*# sourceMappingURL=vista-normal.css.map */

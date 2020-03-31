@@ -23,6 +23,42 @@ function clickBotonBuscar(evento) {
   traerGifsBuscador(valorInput);
 }
 
+//Fetch Random
+
+function gifsRandom(){
+
+  let urlSearchRandom = 'https://api.giphy.com/v1/gifs/random?api_key=DsV5wrnJyENgZWApbRea3zpRa7YSeHgd&tag=random&rating=G';
+
+fetch(urlSearchRandom)
+.then( function (response){
+  return response.json();
+  })
+
+  .then( function(random){
+
+    let gifs = random.data;
+    console.log(gifs);
+
+    for(let i = 0; i < grillaSugeridos.children.length; i++){
+      const gifsRnd = grillaSugeridos.children[i];
+        
+        gifsRnd.style.backgroundImage = 'url(' + gifsRnd[i].id.embed_url.images.downsized + ')';
+        gifsRnd.style.backgroundSize = 'cover';
+        gifsRnd.style.repeat = 'no-repeat';
+        gifsRnd.style.position = 'center';
+
+    }
+    
+
+  })
+
+.catch(function(error){
+  console.log(error);
+})
+
+}
+
+gifsRandom()
 
 function traerGifsBuscador(valor) {
 
@@ -35,9 +71,15 @@ function traerGifsBuscador(valor) {
     .then( (param) =>  {
       // let imagen = param.data[0].images.downsized.url; // string q es una url y la guarda en test
      
-      
+      //console.log('esto quiero ver' + param.data)
+
       let imagenes = param.data;
-      
+      /**
+       * imagenes [ {
+       * images
+       * }]
+       */
+     
       for (let i = 0; i < grillaSugeridos.children.length; i++) {
         const div = grillaSugeridos.children[i];
         
@@ -48,10 +90,13 @@ function traerGifsBuscador(valor) {
         //console.log(div, 'lol');
      
       };
+             
+      //elemento[j].child.algo
+      //elemento.children.children   o elemento.children[]
+      //solo trabajo con el children
+      //queryselectorall(.padre span:nth child (éleccion
       
-         
-      
-    for (let j = 0; j < titulosSugeridos.children.length; j++) {
+    for (let j = 0; j < titulosSugeridos; j++) {
         
          const titulo = titulosSugeridos.children[j];
         console.log(titulo);
@@ -60,9 +105,7 @@ function traerGifsBuscador(valor) {
         //console.log(titulo, 'lol');
       }
 
-      
-
-      
+            
 
       //ACA TENGO QUE HACER LO DEL TEXTO
 
