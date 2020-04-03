@@ -1,0 +1,243 @@
+//variables
+$color-gradient1: linear-gradient(to right, #4180f6, #f7c9f3);
+$font-stack: "Chakra Petch";
+$font-size: 16px;
+$color-textos: #110038;
+
+@mixin botones() {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97;
+  width: 144px;
+  height: 36px;
+  font-family: "Chakra Petch";
+  font-size: 16px;
+  color: #110038;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #fff4fd;
+  overflow-x: hidden;
+  font-family: $font-stack;
+}
+
+.block-title {
+  display: block;
+  width: 100%;
+  height: 32px;
+  background-image: linear-gradient(to right, #4180f6, #f7c9f3);
+  border: solid 0.5px;
+  border-color: black;
+  margin: auto;
+
+  & span {
+    color: white;
+    margin: 20px 0 0 10px;
+    font-family: "Chakra Petch";
+  }
+}
+
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem;
+  height: 120px;
+}
+
+
+//boton seleccion de tema
+
+.botones {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding-bottom: 2rem;
+}
+
+
+.boton_selection {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  
+  
+}
+.contenedor_uno {
+  display: inline-flex;
+  
+}
+
+.boton_tema {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  height: 36px;
+  width: 144px;
+  font-family: $font-stack;
+  font-size: $font-size;
+  text-decoration: none;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+}
+
+.divflechas {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  width: 36px;
+  height: 34px;
+  margin-right: 12px;
+  text-align: center;
+}
+
+.imagen-select {
+  padding-top: 14px;
+}
+
+.temas {
+  width: 172px;
+  background-color: #e6e6e6;
+  height: 91px;
+  box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  display: none;
+  flex-direction: column;
+  padding: 5px;
+  position: absolute;
+  bottom: -103px;
+}
+
+.sailor_botones {
+  height: 36px;
+  width: 150px;
+  text-align: left;
+  margin: 5px 0 2px 2px;
+  padding-left: 2px;
+
+  & span {
+    font-family: $font-stack;
+    font-size: $font-size;
+  }
+}
+
+.sailor_botones:hover{
+      border: solid 0.2px #CCA6C9;
+  
+}
+
+// caja crear gif
+
+.contenedor{
+  background-color:#E6E6E6;
+  width: 684px;
+  height: 386px;
+  box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  margin: 0 auto;
+}
+
+.titulo{
+  width: 680px;
+  height: 24px;
+  background-image: $color-gradient1;
+  margin: auto;
+  
+  & span{
+    font-family: $font-stack;
+    font-size: $font-size;
+    margin-left: 4px;
+    color: white;
+
+  }
+}
+
+.contenedorItems{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 3rem 0 0 1.5rem;
+
+  & h4 {
+    margin-left: 1rem;
+
+  }
+}
+
+.instrucciones{
+  text-align: left;
+  margin-left: 4rem;
+}
+
+.contenedor_botones{
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem 3rem 0 0;
+}
+
+.cancelar{
+  width: 144px;
+  height: 36px;
+  background-color: #FFF4FD;
+  margin-right: 1rem;
+  font-family: $font-stack;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.comenzar{
+  width: 144px;
+  height: 36px;
+  background-color: #F7C9F3;
+  font-family: $font-stack;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+
+
+//---
+
+
+.trend {
+  display: block;
+  width: 1194px;
+  height: 32px;
+  margin: auto;
+  background-color: white;
+  border: solid 1px;
+  border-color: #997c96;
+  margin-top: 60px;
+
+  & p {
+    padding: 5px;
+    font-family: "Chakra Petch";
+  }
+}
+
+//Grilla
+
+.container-grid {
+  display: grid;
+  grid-template-columns: 288px 288px 288px 288px;
+  gap: 15px;
+  justify-content: center;
+  padding-top: 1.5rem;
+}
+
+
+//grilla 2
+
+.card_t {
+  text-align: center;
+  width: 288px;
+  height: 313px;
+  margin: 5px;
+  box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  border: solid 1px;
+  border-color: #ffffff;
+}
+
+

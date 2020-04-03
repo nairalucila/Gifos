@@ -47,6 +47,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   padding-bottom: 2rem;
 }
 
@@ -95,7 +99,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 101px;
+  position: relative;
 }
 
 .contenedor_uno {
@@ -132,31 +136,36 @@ body {
 }
 
 .temas {
-  width: 182px;
+  width: 172px;
   background-color: #e6e6e6;
-  height: 102px;
+  height: 91px;
   -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
           box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 5px;
+  position: absolute;
+  bottom: -103px;
 }
 
 .sailor_botones {
   height: 36px;
   width: 150px;
   text-align: left;
+  margin: 5px 0 2px 2px;
   padding-left: 2px;
 }
 
 .sailor_botones span {
   font-family: "Chakra Petch";
   font-size: 16px;
+}
+
+.sailor_botones:hover {
+  border: solid 0.2px #CCA6C9;
 }
 
 .miGuifos {

@@ -26,6 +26,7 @@ body {
   font-family: $font-stack;
 }
 
+
 .block-title {
   display: block;
   width: 100%;
@@ -53,6 +54,7 @@ body {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   padding-bottom: 2rem;
 }
 
@@ -98,10 +100,13 @@ body {
 .boton_selection {
   display: flex;
   flex-direction: column;
-  margin-top: 101px;
+  position: relative;
+  
+  
 }
 .contenedor_uno {
   display: inline-flex;
+  
 }
 
 .boton_tema {
@@ -130,26 +135,33 @@ body {
 }
 
 .temas {
-  width: 182px;
+  width: 172px;
   background-color: #e6e6e6;
-  height: 102px;
+  height: 91px;
   box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
-  display: flex;
+  display: none;
   flex-direction: column;
   padding: 5px;
+  position: absolute;
+  bottom: -103px;
 }
 
 .sailor_botones {
   height: 36px;
   width: 150px;
   text-align: left;
-  //margin: 5px;
+  margin: 5px 0 2px 2px;
   padding-left: 2px;
 
   & span {
     font-family: $font-stack;
     font-size: $font-size;
   }
+}
+
+.sailor_botones:hover{
+      border: solid 0.2px #CCA6C9;
+  
 }
 //------
 
