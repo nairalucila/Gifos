@@ -12,11 +12,11 @@ const temas = document.getElementById("temas");
 const botonTemas = document.getElementById("temabtn");
 
 //botones temas
-const btnSDay = document.getElementById("sailorDay");
-const btnSNight = document.getElementById("sailorNight");
+const btnSDay = document.getElementById("sailorD");
+const btnSNight = document.getElementById("sailorN");
 
-const sailorDay = document.getElementsByTagName("head")[0].children[2];
-const sailorNight = document.getElementsByTagName("head")[0].children[3];
+//const sailorDay = document.getElementsByTagName("head")[0].children[2];
+//const sailorNight = document.getElementById("sailorNight") //[0].children[3];
 
 //console.log('holiwis', btnSNight);
 
@@ -47,75 +47,58 @@ botonTemas.addEventListener("click", function() {
   temas.style.display = "flex";
 });
 
+const linkNight = "../CSS/vista-nocturna.css";
+const linkDay = "../CSS/vista-normal.css";
+const DIA_THEME_NAME = 'DIAS'
+const NOCHE_THEME_NAME = 'NOCHE'
+
+let temaActual = DIA_THEME_NAME;
+
 botonTemas.addEventListener("focusout", function() {
+
+  const sailorDay = document.getElementById("themeId");
+
+  if (temaActual === DIA_THEME_NAME) {
+    sailorDay.setAttribute("href", linkNight);
+
+    temaActual = NOCHE_THEME_NAME;
+  } else {
+    sailorDay.setAttribute("href", linkDay);
+
+    temaActual = DIA_THEME_NAME;
+  }
+
   temas.style.display = "none";
 });
 
 //--
-
-btnSNight.addEventListener("click", function(evento) {
-  evento.preventDefault();
-  sailorDay.href = "";
-  sailorNight.href = "www.google.com";
-});
 
 // DECLARAS FUNCIONES
 
 function clickBotonBuscar(evento) {
   evento.preventDefault();
   const valorInput = campoBusqueda.value;
-  console.log("click", campoBusqueda.value);
   traerGuifsTendencia(valorInput);
+  cambiarNombreSpan(valorInput);
 }
-
-//Fetch Random
-
-// function gifsRandom() {
-//   let urlSearchRandom =
-//     "https://api.giphy.com/v1/gifs/random?api_key=DsV5wrnJyENgZWApbRea3zpRa7YSeHgd&tag=random&rating=G";
-
-//   fetch(urlSearchRandom)
-//     .then(function(response) {
-//       return response.json();
-//     })
-
-//     .then(function(random) {
-//       let gifs = random.data;
-//       console.log(gifs);
-
-//       for (let i = 0; i < grillaSugeridos.children.length; i++) {
-//         const gifsRnd = grillaSugeridos.children[i];
-
-//         gifsRnd.style.backgroundImage =
-//           "url(" + gifsRnd[i].id.embed_url.images.downsized + ")";
-//         gifsRnd.style.backgroundSize = "cover";
-//         gifsRnd.style.repeat = "no-repeat";
-//         gifsRnd.style.position = "center";
-//       }
-//     })
-
-//     .catch(function(error) {
-//       console.log(error);
-//     });
-// }
-
-// gifsRandom();
-
-//fetch 2
-
-
 
 // CAMBIOS EN DOM
 
+function cambiarNombreSpan(valor) {
+  let palabraTitulo = document.getElementById("tendencia").children[0];
+
+  palabraTitulo.textContent = valor;
+}
+
 // conjuntoImagenes [datagif]
 
-function setearTendenciaConGifs(conjuntoImagenes) {
+// TODO: function setearTituloTendencia(titulo) { tomas el domelement , seteas el texto  }
 
+function setearTendenciaConGifs(conjuntoImagenes) {
   let bloqueTendencias = document.getElementById("grillaTendencia");
 
   for (let i = 0; i < bloqueTendencias.children.length; i++) {
     const section = bloqueTendencias.children[i];
-    console.log(section);
 
     section.style.backgroundImage =
       "url(" + conjuntoImagenes[i].images.downsized.url + ")";
@@ -125,39 +108,40 @@ function setearTendenciaConGifs(conjuntoImagenes) {
   }
 }
 
-function setearSugueridos(param){
-  
+function setearSugueridos(param) {
   const grillaSugeridos = document.getElementById("grilla-sugeridos");
-  
-  
 
   for (let i = 0; i < grillaSugeridos.children.length; i++) {
     const div = grillaSugeridos.children[i];
+    const card = div.children[0];
+    //console.log('yo soy', i);
+    card.children[0].textContent = "#" + param[i].title;
 
-    div.style.backgroundImage =
-      "url(" + param[i].images.downsized.url + ")";
+    div.style.backgroundImage = "url(" + param[i].images.downsized.url + ")";
     div.style.backgroundSize = "cover";
     div.style.repeat = "no-repeat";
     div.style.position = "center";
-  }
 
+    //TODO: seleccionas el span y a ese span le cambias el texto con lo q tenga param
+  }
 }
 
 // LLAMADAS API
 
-
 function traerGuifsTendencia(palabra, limite = 20) {
   const urlTendencia =
-  "http://api.giphy.com/v1/gifs/search?q=" +
+    "http://api.giphy.com/v1/gifs/search?q=" +
     palabra +
     "&api_key=" +
     API_KEY +
     "&limit=" +
     limite;
 
+  // TODO: setearTituloTendencia(palabra)
+
   fetch(urlTendencia)
     .then(response => {
-      console.log(response)
+      console.log(response);
       return response.json();
     })
     .then(function(valor) {
@@ -165,19 +149,18 @@ function traerGuifsTendencia(palabra, limite = 20) {
       // sacar la url original de data.images.origin.url
 
       let imagenes = valor.data;
-      setearTendenciaConGifs(imagenes)
+      setearTendenciaConGifs(imagenes);
     })
     .catch(function(error) {
       console.log(error);
     });
 }
 
-traerGuifsTendencia("pony");
+traerGuifsTendencia();
 
 function traerGifsSugeridas(valor) {
   const urlSugeridos =
     "https://api.giphy.com/v1/gifs/trending?api_key=DsV5wrnJyENgZWApbRea3zpRa7YSeHgd&limit=&rating=G";
-
 
   fetch(urlSugeridos)
     .then(function(res) {
@@ -185,10 +168,8 @@ function traerGifsSugeridas(valor) {
     })
 
     .then(param => {
-      
       let imagenes = param.data;
       setearSugueridos(imagenes);
-      
 
       //ACA TENGO QUE HACER LO DEL TEXTO
     })
@@ -197,4 +178,15 @@ function traerGifsSugeridas(valor) {
     });
 }
 
-//funcion 
+traerGifsSugeridas();
+
+//funcion
+
+/**
+let a = ['ff', 'ghg', 'ghh', 'jfd', 'fjhj'];
+
+for(let i = 0; i < 10; i++){
+
+    console.log('ahora yo soy i', i);
+
+}*/
