@@ -236,7 +236,10 @@ body {
 }
 
 .desplegable {
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: hidden;
   background: #e6e6e6;
   -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
           box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
@@ -353,7 +356,7 @@ body {
 }
 
 .trend p {
-  padding: 5px;
+  padding: 5px 0 3px 5px;
   font-family: "Chakra Petch";
 }
 
@@ -380,6 +383,12 @@ body {
   border-color: #ffffff;
 }
 
+.card:hover {
+  background-color: black;
+  outline: dotted 2px black;
+  outline-offset: -5px;
+}
+
 .card-one {
   background-image: -webkit-gradient(linear, left top, right top, from(#4180f6), to(#f7c9f3));
   background-image: linear-gradient(to right, #4180f6, #f7c9f3);
@@ -396,10 +405,10 @@ body {
   border-color: #ffffff;
 }
 
-.card-one span {
+.card-one h6 {
   font-weight: bold;
   font-family: "Chakra Petch";
-  font-size: 16px;
+  font-size: 14px;
   text-align: left;
   margin: 4px 0 0 10px;
   color: white;
@@ -436,8 +445,8 @@ body {
   -webkit-box-shadow: inset -2px -2px 0 0 #284f99, inset 2px 2px 0 0 #ffffff;
           box-shadow: inset -2px -2px 0 0 #284f99, inset 2px 2px 0 0 #ffffff;
   cursor: pointer;
-  border-style: dotted;
-  border: 1px solid #110038;
+  outline: dotted 2px black;
+  outline-offset: -4px;
 }
 
 .card_t {
@@ -450,5 +459,10 @@ body {
           box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   border: solid 1px;
   border-color: #ffffff;
+}
+
+.card_t:hover {
+  outline: dotted 2px black;
+  outline-offset: -6px;
 }
 /*# sourceMappingURL=vista-normal.css.map */

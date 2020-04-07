@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link id="themeId" rel="stylesheet" href="..\CSS\vista-normal.css">
+    <link id="themeId" rel="stylesheet" href="../CSS/vista-normal.css">
 
 
     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap" rel="stylesheet">
@@ -18,12 +18,12 @@
 
         <!-- seccion 1 -->
         <section class="block-title">
-            <span> Bienvenidos/as a Gifos.com------Donde los Gifs están</span>
+            <h2> Bienvenidos/as a Gifos.com------Donde los Gifs están</h2>
         </section>
 
         <!-- logo y botones -->
 
-        <section class="encabezado">
+        <div class="encabezado">
 
             <div>
                 <img src="assets/gifOF_logo.png" alt="logo-normal">
@@ -33,12 +33,12 @@
 
                 <!-- crear guif -->
                 <div class="button-create-style">
-                    <a href="#"></a><button id="buton-create" class="button-create">Crear Guifos</button></a>
+                    <button id="buton-create" class="button-create"><a href="#">Crear Guifos</a></button>
                 </div>
 
                 <!-- boton select -->
-                <label>
-                    <section class="boton_selection">
+                
+                    <div class="boton_selection">
 
                         <div class="contenedor_uno">
 
@@ -57,10 +57,7 @@
                             <button id="sailorN" class="sailor_botones"> <span> Sailor night</span></button>
                         </div>
 
-                    </section>
-
-                </label>
-
+                    </div>
 
 
 
@@ -71,18 +68,18 @@
 
             </div>
 
-        </section>
+        </div>
 
         <!-- buscador -->
 
 
     </header>
 
-    <section class="searcher-title">
+    <div class="searcher-title" id="formBusqueda">
         <span>Buscar</span>
 
-        <form>
-            <label for="desplegable">
+        <div >
+            
                 <div class="searcher">
                     <input type="search" id="miBusqueda" name="q" autocomplete="off"
                         placeholder="BuscarBusca gifs, hashtags, temas, busca lo que quieras…">
@@ -91,19 +88,19 @@
 
                 <div class="desplegable" id="desplegable">
 
-                    <button class="desplegable_boton" id="desplegable_uno"><span>
+                    <button class="desplegable_boton" id="puppy"><span>
                             Puppys </span></button>
-                    <button class="desplegable_boton" id="desplegable_dos"> <span> Sailor Moon
+                    <button class="desplegable_boton" id="moon"> <span> Sailor Moon
                         </span> </button>
-                    <button class="desplegable_boton" id="desplegable_tres"> <span> Unicorns </span> </button>
+                    <button class="desplegable_boton" id="otters"> <span> Baby Otters </span> </button>
 
                 </div>
-            </label>
+            
 
 
-        </form>
+        </div>
 
-    </section>
+    </div>
 
 
 
@@ -123,11 +120,10 @@
 
 
             <div class="card-one">
-                <span>Texto</span>
+                <h6>Texto</h6>
                 <button class="boton-cerrar">X</button>
             </div>
 
-            <img width="300" src="" />
 
             <button class="boton-grid">Ver mas</button>
 
@@ -137,11 +133,10 @@
 
         <div class="card">
             <div class="card-one">
-                <span>Texto</span>
+                <h6>Texto</h6>
                 <button class="boton-cerrar">X</button>
             </div>
 
-            <img width="300" src="" />
 
             <button class="boton-grid">Ver mas</button>
         </div>
@@ -149,12 +144,11 @@
         <div class="card">
             <div class="card-one">
 
-                <span>Texto</span>
+                <h6>Texto</h6>
                 <button class="boton-cerrar">X</button>
 
             </div>
 
-            <img width="300" src="" />
 
             <button class="boton-grid">Ver mas</button>
 
@@ -163,12 +157,11 @@
         <div class="card">
             <div class="card-one">
 
-                <span>Texto</span>
+                <h6>Texto</h6>
                 <button class="boton-cerrar">X</button>
 
             </div>
 
-            <img width="300" src="" />
 
             <button class="boton-grid">Ver mas</button>
 
@@ -180,36 +173,12 @@
 
     <!-- tendencias -->
 
-    <section id="tendencia" class="trend">
+    <div id="tendencia" class="trend">
         <p>Tendencias</p>
-
-        <!-- grilla-2 -->
-
-        <section class="container-grid" id="grillaTendencia">
-
-            <div class="card_t">
-
-
-            </div>
-
-            <div class="card_t">
-
-            </div>
-
-            <div class="card_t">
-
-
-            </div>
-
-            <div class="card_t">
-
-
-            </div>
-
-
-            <!-- fin de section 2.1 comienzo del 2.2-->
-
-
+    </div>
+    
+    <!-- grilla-2 -->
+        <div class="container-grid" id="grillaTendencia">
 
             <div class="card_t">
 
@@ -231,7 +200,31 @@
             </div>
 
 
-        </section>
+            <!-- fin de div 2.1 comienzo del 2.2-->
+
+
+
+            <div class="card_t">
+
+
+            </div>
+
+            <div class="card_t">
+
+            </div>
+
+            <div class="card_t">
+
+
+            </div>
+
+            <div class="card_t">
+
+
+            </div>
+
+
+        </div>
 
         <!-- script -->
 
@@ -250,10 +243,3 @@
 </html>
 
 
-<!-- cosas que no uso -->
-<!-- <select>
-                            <option selected> Themes </option>
-                            <option>Sailor Day</option>
-                            <option>Sailor Night</option>
-
-                        </select> -->

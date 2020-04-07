@@ -4,27 +4,105 @@
 const API_KEY = "DsV5wrnJyENgZWApbRea3zpRa7YSeHgd";
 const API_URL_SEARCH = "http://api.giphy.com/v1/gifs/search";
 
-let botonBuscar = document.getElementById("buscador");
-const campoBusqueda = document.getElementById("miBusqueda");
 const titulosSugeridos = document.getElementsByClassName("card-one");
-const desplegar = document.getElementById("desplegable");
 const temas = document.getElementById("temas");
 const botonTemas = document.getElementById("temabtn");
 
-//botones temas
-const btnSDay = document.getElementById("sailorD");
-const btnSNight = document.getElementById("sailorN");
+////////////////////////////////////////////////////////////////////
+///////////////////////////////////// CAMPO BUSQUEDA //////////////
 
-//const sailorDay = document.getElementsByTagName("head")[0].children[2];
-//const sailorNight = document.getElementById("sailorNight") //[0].children[3];
+const botonBuscar = document.getElementById("buscador");
+const campoBusqueda = document.getElementById("miBusqueda");
+const sectionBusqueda = document.getElementById("formBusqueda");
+const desplegar = document.getElementById("desplegable");
 
-//console.log('holiwis', btnSNight);
-
-// EVENTOS
+function clickBotonBuscar(evento) {
+  evento.preventDefault();
+  const valorInput = campoBusqueda.value;
+  traeGifSearchYagregarTendencia(valorInput);
+  cambiarNombreSpanTendencia(valorInput);
+}
 
 botonBuscar.onclick = clickBotonBuscar;
 
-campoBusqueda.addEventListener("focus", function() {
+//TRAER RESP DE SAILOR MOON
+
+let btnMoonSearch = document.getElementById("moon");
+
+function btnMoonClick() {
+  traeGifSearchYagregarTendencia("sailor moon", 20, function (e) {
+    console.log("prim", e);
+    desplegar.style.visibility = "hidden";
+  });
+}
+
+// btnMoonSearch.addEventListener('click', btnMoonCallback)
+
+// TRAER RESP OTTERS
+
+let otters = document.getElementById("otters");
+
+function traerGifsOtters(){
+
+  traeGifSearchYagregarTendencia('baby otters', 20, function(){
+    
+    desplegar.style.visibility = "hidden";
+  })
+};
+
+// TRAER RESP PUPPY
+let puppys = document.getElementById('puppy')
+
+function traerGifPuppy(){
+  console.log('puppy')
+  traeGifSearchYagregarTendencia('puppy', 20, function(e){
+  
+    desplegar.style.visibility = 'hidden';
+  })
+}
+
+
+// click en input
+sectionBusqueda.addEventListener("click", function (e) {
+  desplegar.style.visibility = "unset";
+});
+
+
+sectionBusqueda.addEventListener('focusout', function(e){
+   console.log(e);
+
+   if (e.relatedTarget === null){
+
+    desplegar.style.visibility = 'hidden';
+    return;
+   }
+
+   if (e.relatedTarget.id === 'moon'){
+     console.log('yupi')
+     btnMoonClick()
+     cambiarNombreSpanTendencia('sailor moon')
+     return;
+    }
+    
+    if (e.relatedTarget.id ==='otters'){
+      //console.log('otter')
+      traerGifsOtters()
+      cambiarNombreSpanTendencia('baby otter')
+      return;
+      
+    }
+
+    if(e.relatedTarget.id === 'puppy'){
+      traerGifPuppy();
+      cambiarNombreSpanTendencia('puppy')
+      return;
+    }
+
+})
+
+// boton buscar
+
+campoBusqueda.addEventListener("focus", function () {
   botonBuscar.style.backgroundColor = "#F7C9F3";
 });
 
@@ -32,30 +110,25 @@ campoBusqueda.addEventListener("focusout", () => {
   botonBuscar.style.backgroundColor = "#e6e6e6";
 });
 
-// despliega botones del buscador
-campoBusqueda.addEventListener("click", function() {
-  desplegar.style.display = "flex";
-});
-
-campoBusqueda.addEventListener("focusout", function() {
-  desplegar.style.display = "none";
-});
-
-//desplegar boton de tema
-
-botonTemas.addEventListener("click", function() {
-  temas.style.display = "flex";
-});
+/////////////////////////////////////////////////////////////
+////////////////////////////////// TEMA /////////////////////
 
 const linkNight = "../CSS/vista-nocturna.css";
 const linkDay = "../CSS/vista-normal.css";
-const DIA_THEME_NAME = 'DIAS'
-const NOCHE_THEME_NAME = 'NOCHE'
+const DIA_THEME_NAME = "DIAS";
+const NOCHE_THEME_NAME = "NOCHE";
+
+//botones temas
+const btnSDay = document.getElementById("sailorD");
+const btnSNight = document.getElementById("sailorN");
+
+botonTemas.addEventListener("click", function () {
+  temas.style.display = "flex";
+});
 
 let temaActual = DIA_THEME_NAME;
 
-botonTemas.addEventListener("focusout", function() {
-
+botonTemas.addEventListener("focusout", function () {
   const sailorDay = document.getElementById("themeId");
 
   if (temaActual === DIA_THEME_NAME) {
@@ -71,64 +144,29 @@ botonTemas.addEventListener("focusout", function() {
   temas.style.display = "none";
 });
 
-//--
+//////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////// TENDENCIA /////////////////////////////////////
 
-// DECLARAS FUNCIONES
-
-function clickBotonBuscar(evento) {
-  evento.preventDefault();
-  const valorInput = campoBusqueda.value;
-  traerGuifsTendencia(valorInput);
-  cambiarNombreSpan(valorInput);
-}
-
-// CAMBIOS EN DOM
-
-function cambiarNombreSpan(valor) {
+function cambiarNombreSpanTendencia(valor) {
   let palabraTitulo = document.getElementById("tendencia").children[0];
 
   palabraTitulo.textContent = valor;
 }
 
-// conjuntoImagenes [datagif]
-
-// TODO: function setearTituloTendencia(titulo) { tomas el domelement , seteas el texto  }
-
-function setearTendenciaConGifs(conjuntoImagenes) {
+function agregaGifsaTendencia(data) {
   let bloqueTendencias = document.getElementById("grillaTendencia");
 
   for (let i = 0; i < bloqueTendencias.children.length; i++) {
     const section = bloqueTendencias.children[i];
 
-    section.style.backgroundImage =
-      "url(" + conjuntoImagenes[i].images.downsized.url + ")";
+    section.style.backgroundImage = "url(" + data[i].images.downsized.url + ")";
     section.style.backgroundSize = "cover";
     section.style.repeat = "no-repeat";
     section.style.position = "center";
   }
 }
 
-function setearSugueridos(param) {
-  const grillaSugeridos = document.getElementById("grilla-sugeridos");
-
-  for (let i = 0; i < grillaSugeridos.children.length; i++) {
-    const div = grillaSugeridos.children[i];
-    const card = div.children[0];
-    //console.log('yo soy', i);
-    card.children[0].textContent = "#" + param[i].title;
-
-    div.style.backgroundImage = "url(" + param[i].images.downsized.url + ")";
-    div.style.backgroundSize = "cover";
-    div.style.repeat = "no-repeat";
-    div.style.position = "center";
-
-    //TODO: seleccionas el span y a ese span le cambias el texto con lo q tenga param
-  }
-}
-
-// LLAMADAS API
-
-function traerGuifsTendencia(palabra, limite = 20) {
+function traeGifSearchYagregarTendencia(palabra, limite = 20, callback) {
   const urlTendencia =
     "http://api.giphy.com/v1/gifs/search?q=" +
     palabra +
@@ -137,56 +175,65 @@ function traerGuifsTendencia(palabra, limite = 20) {
     "&limit=" +
     limite;
 
-  // TODO: setearTituloTendencia(palabra)
-
   fetch(urlTendencia)
-    .then(response => {
-      console.log(response);
+    .then((response) => {
       return response.json();
     })
-    .then(function(valor) {
-      /// api explore
-      // sacar la url original de data.images.origin.url
-
+    .then(function (valor) {
       let imagenes = valor.data;
-      setearTendenciaConGifs(imagenes);
+      agregaGifsaTendencia(imagenes);
+
+      if (callback) {
+        callback();
+      }
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.log(error);
     });
 }
 
-traerGuifsTendencia();
+traeGifSearchYagregarTendencia();
+
+//////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////// SUGERIDOS //////////////////////////////
 
 function traerGifsSugeridas(valor) {
   const urlSugeridos =
     "https://api.giphy.com/v1/gifs/trending?api_key=DsV5wrnJyENgZWApbRea3zpRa7YSeHgd&limit=&rating=G";
 
   fetch(urlSugeridos)
-    .then(function(res) {
+    .then(function (res) {
       return res.json();
     })
 
-    .then(param => {
+    .then((param) => {
       let imagenes = param.data;
       setearSugueridos(imagenes);
 
       //ACA TENGO QUE HACER LO DEL TEXTO
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.log(error);
     });
 }
 
+function setearSugueridos(param) {
+  const grillaSugeridos = document.getElementById("grilla-sugeridos");
+
+  for (let i = 0; i < grillaSugeridos.children.length; i++) {
+    const div = grillaSugeridos.children[i];
+    const card = div.children[0];
+
+    card.children[0].textContent = "#" + param[i].title;
+
+    div.style.backgroundImage = "url(" + param[i].images.downsized.url + ")";
+    div.style.backgroundSize = "cover";
+    div.style.repeat = "no-repeat";
+    div.style.position = "center";
+  }
+}
+
 traerGifsSugeridas();
 
-//funcion
-
-/**
-let a = ['ff', 'ghg', 'ghh', 'jfd', 'fjhj'];
-
-for(let i = 0; i < 10; i++){
-
-    console.log('ahora yo soy i', i);
-
-}*/
+///////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////// LLAMADAS API ////////////////////////////

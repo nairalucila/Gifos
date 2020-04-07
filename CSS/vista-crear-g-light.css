@@ -156,21 +156,20 @@ body {
 }
 
 .contenedorItems {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
   margin: 3rem 0 0 1.5rem;
 }
 
 .contenedorItems h4 {
   margin-left: 1rem;
+}
+
+.oculto {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .instrucciones {
@@ -205,6 +204,58 @@ body {
   font-family: "Chakra Petch";
   font-size: 16px;
   cursor: pointer;
+}
+
+.boton_captura {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-right: 48px;
+  visibility: hidden;
+}
+
+.contenedorBtnCaptura {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: absolute;
+  bottom: 3rem;
+}
+
+.divCamara {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  width: 36px;
+  height: 33px;
+  text-align: center;
+}
+
+.boton_cam {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  height: 35px;
+  width: 144px;
+  font-family: "Chakra Petch";
+  font-size: 16px;
+  text-decoration: none;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+}
+
+.imagen-cam-select {
+  padding: 8px 5px 5px 5px;
+}
+
+.video {
+  width: 705px;
+  height: 360px;
+  display: none;
+  margin: 0;
 }
 
 .trend {
