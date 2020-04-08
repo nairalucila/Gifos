@@ -21,6 +21,8 @@ botonComenzar.addEventListener("click", function (e) {
 
 /////////////////// VIDEO /////////////////
 
+let botonCamara = document.getElementById("cambtn");
+
 let mediaRecorder; //variable del media recorder
 
 function startCamera() {
@@ -47,7 +49,7 @@ function record(stream) {
         frameRate: 30,
         width: 700,
         onGifRecordingStarted: function () {
-          console.log("holi");
+          console.log("esta grabando");
         },
       });
       mediaRecorder.startRecording();
@@ -55,7 +57,7 @@ function record(stream) {
 
       let divCamara = document.getElementById("divCamara");
       let imagenDivCamara = document.getElementById("img-boton-captura");
-      let botonCamara = document.getElementById("cambtn");
+      
 
       divCamara.style.backgroundColor = "#FF6161";
       botonCamara.style.backgroundColor = "#FF6161";
@@ -63,6 +65,7 @@ function record(stream) {
       imagenDivCamara.getAttribute("src", "/assets/recording.svg");
     } else {
       mediaRecorder.stopRecording(stopRecordingCallback);
+     
     }
   });
 }
@@ -73,22 +76,33 @@ let botonSubir = document.getElementById("boton_subir");
 
 function stopRecordingCallback() {
   mediaRecorder.camera.stop();
+  quitarBotonListo();
+   
   //detiene la camara y se crea un formdata que es una funcion--
   let form = new FormData();
   form.append("file", mediaRecorder.getBlob(), "miGif.gif"); //a esta funcion se le pasan datos y el get blob contiene el gif
-
+  
   console.log(mediaRecorder.getBlob());
 
   botonSubir.addEventListener("click", function () {
     enviarGiphy(form) //cuando se hace click en boton subir - se ejcuta la funcion async que trae los datos del fetch con method post y body
       .then((rep) => traerGifGuardarGaleria(rep.data.id)); //aca accedemos al id del gif y se lo pasamos a la fun que guarda ls
     //.then((rep) =>{console.log('a', rep);})
+
+    // ocultar boton subir
   });
 
   botonSubir.classList.remove("up");
   mediaRecorder.destroy();
   mediaRecorder = null;
 }
+
+function quitarBotonListo(){
+  botonCaptura.style.display = 'none';
+
+  //aca deberia aparecer el boton de repetir captura
+
+};
 
 const API_KEY = "DsV5wrnJyENgZWApbRea3zpRa7YSeHgd";
 const API_URL_UPLOAD = "http://upload.giphy.com/v1/gifs";
@@ -115,11 +129,18 @@ function traerGifGuardarGaleria(gif) {
 
     // utilizar url - datos de rep para mostrar preview - modal -
     //guardo ls -
+    /**
+     * Tip: Para mostrar previews de nuestro archivo podemos utilizar el método getBlob combinado con createObjectURLpara crear una url que puede ser usada como atributo src de una etiqueta
+     */
     //evento - del ls sacar g y mosrtar, grilla
 
     .then((rep) => {
-      localStorage.setItem(rep, JSON.stringify(rep));
-      
+      // como tomar del localstoragwe o agregar como array un consj de items
+      // 
+      // var = localStorage.getItem('gifs')
+      // var2 = JSON.parse(var)
+      // var2.push(rep)
+      localStorage.setItem('gifs', JSON.stringify(rep));
       console.log("e", rep);
     })
 
