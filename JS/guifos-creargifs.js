@@ -9,7 +9,6 @@ const botonCaptura = document.getElementById("boton_captura");
 const contenedorCrearGif = document.getElementById("contenedorCrearGif");
 
 botonComenzar.addEventListener("click", function (e) {
-  console.log("dale bolo");
   e.preventDefault();
   instrucciones.remove();
   video.style.display = "unset";
@@ -22,99 +21,107 @@ botonComenzar.addEventListener("click", function (e) {
 
 /////////////////// VIDEO /////////////////
 
-function startCamera(){
+let mediaRecorder; //variable del media recorder
 
-navigator.mediaDevices.getUserMedia({
-    audio: false,
-    video: true,
-    
-  })
-  .then(record)
-  .catch (err => console.log(err)) 
- 
+function startCamera() {
+  navigator.mediaDevices
+    .getUserMedia({
+      audio: false,
+      video: true,
+    })
+    .then(record)
+    .catch((err) => console.log(err));
 }
 
-  function record(stream){
-    video.srcObject = stream;
-    
-    let mediaRecorder = new MediaRecorder(stream, {
-       mimeType: 'video/webm;codecs=h264'
-    });
+function record(stream) {
+  video.srcObject = stream; //lo q tome de la camara lo pasa como string
+  video.play();
 
-  mediaRecorder.start();
+  botonCaptura.addEventListener("click", function (ev) {
+    ev.preventDefault();
+    // aca hay una var definida como falso. Cuando isRecoding es true, graba
+    isRecording = !isRecording;
+    if (isRecording === true) {
+      mediaRecorder = new RecordRTC(stream, {
+        type: "gif",
+        frameRate: 30,
+        width: 700,
+        onGifRecordingStarted: function () {
+          console.log("holi");
+        },
+      });
+      mediaRecorder.startRecording();
+      mediaRecorder.camera = stream;
 
-  mediaRecorder.ondataavailable = function(e){
- 
-    arr.push(e.data);
+      let divCamara = document.getElementById("divCamara");
+      let imagenDivCamara = document.getElementById("img-boton-captura");
+      let botonCamara = document.getElementById("cambtn");
 
-  }
-
-  mediaRecorder.onstop = function(){
-    alert('fin grabacion');
-
-    let blob = new Blob(arr, {type:"video/webm"});
-    arr = [];
-    download(blob);
-    console.log('blobbb', blob);
-    console.log('arreglo', arr);
-
-  }
-
-  setTimeout(()=> mediaRecorder.stop(),5000)
+      divCamara.style.backgroundColor = "#FF6161";
+      botonCamara.style.backgroundColor = "#FF6161";
+      botonCamara.textContent = "Listo";
+      imagenDivCamara.getAttribute("src", "/assets/recording.svg");
+    } else {
+      mediaRecorder.stopRecording(stopRecordingCallback);
+    }
+  });
 }
- 
-///arreglo en donde se guardan los datos
- let arr = [];
 
- function download(blob){
+let isRecording = false;
 
-  let link =document.createElement('a');
-  link.href = window.URL.createObjectURL(blob);
-  link.setAttribute("download", "video_recorded.webm")
-  link.style.display = 'none';
+let botonSubir = document.getElementById("boton_subir");
 
-  document.body.appendChild(link);
+function stopRecordingCallback() {
+  mediaRecorder.camera.stop();
+  //detiene la camara y se crea un formdata que es una funcion--
+  let form = new FormData();
+  form.append("file", mediaRecorder.getBlob(), "miGif.gif"); //a esta funcion se le pasan datos y el get blob contiene el gif
 
-  link.click();
-  link.remove();
-  
- }
+  console.log(mediaRecorder.getBlob());
 
-
-///////////// CAMBIO DE BOTON //////////////////////
-
-botonCaptura.addEventListener("click", function(ev){
-  ev.preventDefault();
-  
-  let divCamara = document.getElementById('divCamara');
-  let imagenDivCamara = document.getElementById('img-boton-captura')
-  let botonCamara = document.getElementById('cambtn');
-
-  divCamara.style.backgroundColor = '#FF6161' ;
-  botonCamara.style.backgroundColor = '#FF6161';
-  botonCamara.textContent = 'Listo'
-  imagenDivCamara.getAttribute('src', '/assets/recording.svg')
-
-
-
- 
-  
+  botonSubir.addEventListener("click", function () {
+    enviarGiphy(form) //cuando se hace click en boton subir - se ejcuta la funcion async que trae los datos del fetch con method post y body
+      .then((rep) => traerGifGuardarGaleria(rep.data.id)); //aca accedemos al id del gif y se lo pasamos a la fun que guarda ls
+    //.then((rep) =>{console.log('a', rep);})
   });
 
+  botonSubir.classList.remove("up");
+  mediaRecorder.destroy();
+  mediaRecorder = null;
+}
 
+const API_KEY = "DsV5wrnJyENgZWApbRea3zpRa7YSeHgd";
+const API_URL_UPLOAD = "http://upload.giphy.com/v1/gifs";
 
+//enviar gify es una funcion  asincronica, q dice asegura que se tengan todos los datos del fetch
+//se le pasa un parametro que contiene el blob, que viene de FormData - ver linea 83
+async function enviarGiphy(form) {
+  let response = await fetch(API_URL_UPLOAD + "?api_key=" + API_KEY, {
+    method: "POST",
+    body: form,
+  });
+  let rep = await response.json();
 
+  return rep;
+ }
 
+const API_URL_ENDPOINT = "http://api.giphy.com/v1/gifs/";
 
-// async (e) => {
-//   try {
-//     const stream = await navigator.mediaDevices.getUserMedia({
-//       video: true,
-//     })
-//   }
-// })
-// video.style.display = "unset";
-// video.getAttribute('src', stream);
+function traerGifGuardarGaleria(gif) {
+  fetch(API_URL_ENDPOINT + gif + "?api_key=" + API_KEY)
+    .then((response) => {
+      return response.json();
+    })
 
-//ejectue una funcion que cambie el boton
-//});
+    // utilizar url - datos de rep para mostrar preview - modal -
+    //guardo ls -
+    //evento - del ls sacar g y mosrtar, grilla
+
+    .then((rep) => {
+      localStorage.setItem(rep, JSON.stringify(rep));
+      
+      console.log("e", rep);
+    })
+
+    .catch();
+}

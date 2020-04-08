@@ -128,15 +128,15 @@ body {
 }
 
 .sailor_botones:hover {
-  border: solid 0.2px #CCA6C9;
+  border: solid 0.2px #cca6c9;
 }
 
 .contenedor {
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
   width: 684px;
   height: 386px;
-  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   margin: 0 auto;
 }
 
@@ -190,7 +190,7 @@ body {
 .cancelar {
   width: 144px;
   height: 36px;
-  background-color: #FFF4FD;
+  background-color: #fff4fd;
   margin-right: 1rem;
   font-family: "Chakra Petch";
   font-size: 16px;
@@ -200,7 +200,7 @@ body {
 .comenzar {
   width: 144px;
   height: 36px;
-  background-color: #F7C9F3;
+  background-color: #f7c9f3;
   font-family: "Chakra Petch";
   font-size: 16px;
   cursor: pointer;
@@ -256,6 +256,19 @@ body {
   height: 360px;
   display: none;
   margin: 0;
+}
+
+.subir {
+  position: relative;
+  left: 2px;
+}
+
+.ultimo_boton {
+  display: none;
+}
+
+.up {
+  display: none;
 }
 
 .trend {
