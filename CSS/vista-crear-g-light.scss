@@ -239,17 +239,71 @@ body {
 
 //---
 
+.contenedor_btn_funciones {
+  display: inline-flex;
+  margin: 0 1rem 0 1rem;
+}
+
+.subir_repetir {
+  position: relative;
+  left: 340px;
+  bottom: 12px;
+}
+
 .subir {
   position: relative;
   left: 2px;
+  width: 140px;
+  height: 36px;
+  text-align: center;
+  font-size: $font-stack;
+  font-size: $font-size;
+  background-color: #f0e5ee;
+
+  & :hover {
+    background-color: black;
+    outline: dotted 2px;
+    outline-offset: -8px;
+  }
 }
+
+.repetir {
+  position: relative;
+  left: 2px;
+  width: 140px;
+  height: 36px;
+  text-align: center;
+  font-size: $font-stack;
+  font-size: $font-size;
+  background-color: #f0e5ee;
+  margin-right: 10px;
+}
+
+.back {
+  display: none;
+}
+
 .ultimo_boton {
   display: none;
 }
+
 .up {
   display: none;
 }
 
+.timer {
+  width: 110px;
+  background-color: white;
+  height: 25px;
+  box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+  position: absolute;
+}
+
+// .timerDisplay{
+//   display: none;
+// }
+
+////
 .trend {
   display: block;
   width: 1194px;
@@ -264,6 +318,35 @@ body {
     padding: 5px;
     font-family: "Chakra Petch";
   }
+}
+
+//barra de carga
+.sectionContador{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.play{
+    width: 12px;
+    height: 12px;
+    background-color: #F7C9F3;
+  }
+
+.timeBar{
+  width: auto;
+  display: flex;
+  background: #b4b4b4;
+  box-shadow: inset -2px -2px 0 0 #fffcfc, inset 2px 2px 0 0 #000000;
+  margin-left: 4px;
+
+}
+
+.timeBox {
+  width: 12px;
+  height: 20px;
+  background: #999999;
+  margin: 2px;
 }
 
 //Grilla
