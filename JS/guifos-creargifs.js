@@ -41,7 +41,7 @@ function record(stream) {
 
   botonCaptura.addEventListener("click", function (ev) {
     ev.preventDefault();
-    
+
     getTimer();
     // aca hay una var definida como falso. Cuando isRecoding es true, graba
     isRecording = !isRecording;
@@ -68,7 +68,7 @@ function record(stream) {
     } else {
       mediaRecorder.stopRecording(stopRecordingCallback);
 
-      stopedInterval= true;
+      stopedInterval = true;
     }
   });
 }
@@ -81,7 +81,7 @@ let botonRepetir = document.getElementById("repetir");
 function stopRecordingCallback() {
   mediaRecorder.camera.stop();
   quitarBotonListo();
-  
+
   //detiene la camara y se crea un formdata que es una funcion--
   let form = new FormData();
   form.append("file", mediaRecorder.getBlob(), "miGif.gif"); //a esta funcion se le pasan datos y el get blob contiene el gif
@@ -134,10 +134,9 @@ function traerGifGuardarGaleria(gif) {
       return response.json();
     })
     .then((rep) => {
-
       let gifs = obtenerGifsLS();
       gifs.push(rep);
-      
+
       localStorage.setItem("gifs", JSON.stringify(gifs));
 
       // se generan de nuevo los gifs
@@ -157,40 +156,38 @@ function obtenerGifsLS() {
   return gifsLS;
 }
 
-
-function iterarYAgregarEl(){
+function iterarYAgregarEl() {
   const gifs = obtenerGifsLS();
   let grillaMisGifos = document.getElementById("grillaMisGifos");
 
-  if(grillaMisGifos.children.length > 0) {
-    grillaMisGifos.innerHTML = '';
+  if (grillaMisGifos.children.length > 0) {
+    grillaMisGifos.innerHTML = "";
   }
 
-  console.log('ver', gifs)
+  console.log("ver", gifs);
 
-  gifs.forEach((gif)=>{
-    let div = document.createElement('div');
-    div.classList.add('card_t')
-    div.style.backgroundImage =  'url(' +  gif.data.images.downsized.url + ')';
-    div.style.backgroundSize = 'cover';
+  gifs.forEach((gif) => {
+    let div = document.createElement("div");
+    div.classList.add("card_t");
+    div.style.backgroundImage = "url(" + gif.data.images.downsized.url + ")";
+    div.style.backgroundSize = "cover";
     grillaMisGifos.appendChild(div);
-        
-  })
+  });
 }
 
-iterarYAgregarEl()
+iterarYAgregarEl();
 
 ///// Timer
 
-let timer = document.getElementById('timer');
+let timer = document.getElementById("timer");
 let stopedInterval = false;
 
-function getTimer(){
-  timer.classList.remove('timerDisplay');
-  
+function getTimer() {
+  timer.classList.remove("timerDisplay");
+
   let incioContador = 0;
-  console.log('get timer ')
-  
+  console.log("get timer ");
+
   let interval = setInterval(() => {
     incioContador++;
 
@@ -198,18 +195,11 @@ function getTimer(){
     let seconds = incioContador % 60;
     let formato = seconds < 10 ? `0${seconds}` : seconds;
 
-    timer.textContent =  `00:00:0${minutes}:${formato}`; 
+    timer.textContent = `00:00:0${minutes}:${formato}`;
 
-    if(stopedInterval) {
-      clearInterval(interval)
-      timer.textContent = '00:00:00:00'
+    if (stopedInterval) {
+      clearInterval(interval);
+      timer.textContent = "00:00:00:00";
     }
-    
-  },1000);
-  
-   
-  }
-
-
-
-
+  }, 1000);
+}

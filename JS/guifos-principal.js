@@ -146,25 +146,7 @@ botonTemas.addEventListener("focusout", function () {
 
 //////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////// TENDENCIA /////////////////////////////////////
-
-function cambiarNombreSpanTendencia(valor) {
-  let palabraTitulo = document.getElementById("tendencia").children[0];
-
-  palabraTitulo.textContent = valor;
-}
-
-function agregaGifsaTendencia(data) {
-  let bloqueTendencias = document.getElementById("grillaTendencia");
-
-  for (let i = 0; i < bloqueTendencias.children.length; i++) {
-    const section = bloqueTendencias.children[i];
-
-    section.style.backgroundImage = "url(" + data[i].images.downsized.url + ")";
-    section.style.backgroundSize = "cover";
-    section.style.repeat = "no-repeat";
-    section.style.position = "center";
-  }
-}
+//let botonVerMasGrillas = document.getElementById('card').children;
 
 function traeGifSearchYagregarTendencia(palabra, limite = 20, callback) {
   const urlTendencia =
@@ -186,11 +168,68 @@ function traeGifSearchYagregarTendencia(palabra, limite = 20, callback) {
       if (callback) {
         callback();
       }
+
+           
+      
     })
     .catch(function (error) {
       console.log(error);
     });
 }
+const grillaSugeridos = document.getElementById("grilla-sugeridos");
+console.log('el boton', grillaSugeridos.children);
+
+for (let index = 0; index < grillaSugeridos.children.length; index++) {
+  const div = grillaSugeridos.children[index];
+  const botonVerMas = div.children[1]
+  
+  botonVerMas.addEventListener('click', function(){
+    const texto = div.children[0].children[0].textContent;
+    
+    let regexp = new RegExp('#([^\\s]*)','g');
+    textoSinHashtag = texto.replace(regexp, '');
+    console.log(textoSinHashtag)
+    traeGifSearchYagregarTendencia(textoSinHashtag);
+    cambiarNombreSpanTendencia(textoSinHashtag);
+  });
+
+}
+
+function setearTituloSugeridos(param){
+
+    for (let i =0; i < botonVerMasGrillas; i++){
+    let botones = botonVerMasGrillas[i];
+  
+      botones.textContent = param[i].title;
+
+          
+  
+    }
+    
+};
+
+
+function cambiarNombreSpanTendencia(valor) {
+  let palabraTitulo = document.getElementById("tendencia").children[0];
+
+  palabraTitulo.textContent = valor;
+}
+
+
+function agregaGifsaTendencia(data) {
+  let bloqueTendencias = document.getElementById("grillaTendencia");
+
+  for (let i = 0; i < bloqueTendencias.children.length; i++) {
+    const section = bloqueTendencias.children[i];
+
+    section.style.backgroundImage = "url(" + data[i].images.downsized.url + ")";
+    section.style.backgroundSize = "cover";
+    section.style.backgroundRepeat = "no-repeat";
+    section.style.backgroundPosition = "center";
+  }
+}
+
+
 
 traeGifSearchYagregarTendencia();
 
@@ -208,7 +247,10 @@ function traerGifsSugeridas(valor) {
 
     .then((param) => {
       let imagenes = param.data;
+      
+      //console.log('leeme',param.data)
       setearSugueridos(imagenes);
+      setearTituloSugeridos(imagenes);
 
       //ACA TENGO QUE HACER LO DEL TEXTO
     })
@@ -217,21 +259,23 @@ function traerGifsSugeridas(valor) {
     });
 }
 
+
 function setearSugueridos(param) {
-  const grillaSugeridos = document.getElementById("grilla-sugeridos");
+ 
 
   for (let i = 0; i < grillaSugeridos.children.length; i++) {
     const div = grillaSugeridos.children[i];
     const card = div.children[0];
 
-    card.children[0].textContent = "#" + param[i].title;
+    card.children[0].textContent = "# " + param[i].title;
 
     div.style.backgroundImage = "url(" + param[i].images.downsized.url + ")";
     div.style.backgroundSize = "cover";
-    div.style.repeat = "no-repeat";
-    div.style.position = "center";
+    div.style.backgroundRepeat = "no-repeat";
+    div.style.backgroundPosition = "center";
   }
 }
+
 
 traerGifsSugeridas();
 
