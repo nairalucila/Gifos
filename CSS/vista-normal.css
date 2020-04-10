@@ -13,6 +13,10 @@ body {
   display: none;
 }
 
+.logo_dark {
+  visibility: hidden;
+}
+
 .block-title {
   display: block;
   width: 100%;
@@ -24,10 +28,11 @@ body {
   margin: auto;
 }
 
-.block-title span {
+.block-title h2 {
   color: white;
-  margin: 20px 0 0 10px;
   font-family: "Chakra Petch";
+  font-size: 16px;
+  margin: 7px 0 0 7px;
 }
 
 .encabezado {
@@ -381,6 +386,7 @@ body {
           box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   border: solid 1px;
   border-color: #ffffff;
+  background-position: center;
 }
 
 .card:hover {

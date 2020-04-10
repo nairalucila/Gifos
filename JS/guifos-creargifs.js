@@ -7,14 +7,14 @@ const video = document.getElementById("video");
 const contenedorBoton = document.getElementById("contenedorBotones");
 const botonCaptura = document.getElementById("boton_captura");
 const contenedorCrearGif = document.getElementById("contenedorCrearGif");
+let timerBar = document.getElementById("timerBar");
 
 botonComenzar.addEventListener("click", function (e) {
   e.preventDefault();
   instrucciones.remove();
-  video.style.display = "unset";
-  contenedorBoton.innerHTML = "";
+  video.style.display = "block";
+  contenedorBoton.style.display = 'none';
   botonCaptura.style.visibility = "visible";
-  contenedorCrearGif.style.height = "460px";
 
   startCamera();
 });
@@ -22,6 +22,7 @@ botonComenzar.addEventListener("click", function (e) {
 /////////////////// VIDEO /////////////////
 
 let botonCamara = document.getElementById("cambtn");
+let botonListo  = document.getElementById('boton_listo')
 
 let mediaRecorder; //variable del media recorder
 
@@ -29,9 +30,9 @@ function startCamera() {
   navigator.mediaDevices
     .getUserMedia({
       audio: false,
-      video: true,
+      video: {width : 832 , height : 434},
     })
-    .then(record)
+    .then(rec => record(rec))
     .catch((err) => console.log(err));
 }
 
@@ -43,14 +44,15 @@ function record(stream) {
     ev.preventDefault();
 
     getTimer();
+    timerBar.style.display = "flex";
     // aca hay una var definida como falso. Cuando isRecoding es true, graba
     isRecording = !isRecording;
     if (isRecording === true) {
       mediaRecorder = new RecordRTC(stream, {
         type: "gif",
         frameRate: 500,
-        width: 700,
-        height: 700,
+        width: 832,
+        height: 434,
         onGifRecordingStarted: function () {
           console.log("esta grabando");
         },
@@ -62,9 +64,12 @@ function record(stream) {
       let imagenDivCamara = document.getElementById("img-boton-captura");
 
       divCamara.style.backgroundColor = "#FF6161";
-      botonCamara.style.backgroundColor = "#FF6161";
-      botonCamara.textContent = "Listo";
-      imagenDivCamara.getAttribute(src, "/assets/recording.svg");
+      botonCamara.style.display = "none";
+      botonListo.style.display = 'block';
+      botonListo.style.position = 'relative';
+      botonListo.classList.add('boton_cam');
+      botonListo.style.backgroundColor = '#FF6161';
+      //imagenDivCamara.getAttribute(src, ".../assets/recording.svg");
     } else {
       mediaRecorder.stopRecording(stopRecordingCallback);
 
@@ -89,9 +94,9 @@ function stopRecordingCallback() {
   console.log(form, "FORM");
 
   botonSubir.addEventListener("click", function () {
+    
     enviarGiphy(form) //cuando se hace click en boton subir - se ejcuta la funcion async que trae los datos del fetch con method post y body
       .then((rep) => traerGifGuardarGaleria(rep.data.id)); //aca accedemos al id del gif y se lo pasamos a la fun que guarda ls
-    //.then((rep) =>{console.log('a', rep);})
 
     // ocultar boton subir
   });
@@ -104,6 +109,8 @@ function stopRecordingCallback() {
 
 function quitarBotonListo() {
   botonCaptura.style.display = "none";
+  contenedor.classList.add("contenedorCargaGif");
+  contenedor.classList.remove("contenedorItems");
 
   //aca deberia aparecer el boton de repetir captura
 }
@@ -111,7 +118,6 @@ function quitarBotonListo() {
 const API_KEY = "DsV5wrnJyENgZWApbRea3zpRa7YSeHgd";
 const API_URL_UPLOAD = "http://upload.giphy.com/v1/gifs";
 
-//enviar gify es una funcion  asincronica, q dice asegura que se tengan todos los datos del fetch
 //se le pasa un parametro que contiene el blob, que viene de FormData - ver linea 83
 async function enviarGiphy(form) {
   let response = await fetch(API_URL_UPLOAD + "?api_key=" + API_KEY, {
@@ -203,3 +209,29 @@ function getTimer() {
     }
   }, 1000);
 }
+
+//// Barra de Carga
+
+let barra = document.getElementById("barra");
+
+let count = 0;
+let restart = true;
+setInterval(() => {
+  if (restart) {
+    barra.children[count].style.backgroundColor = "pink";
+    count++;
+  }
+  if (count == 17) {
+    for (let el of barra.children) {
+      el.style.backgroundColor = "blue";
+    }
+    restart = true;
+    count = 0;
+  }
+}, 1000);
+
+
+///////////////// TEMAS  /////////////////////
+
+const TEMA_DIA = '..\CSS\vista-crear-g-light.css';
+const TEMA_NOCHE = '..\CSS\vista-crear-g-dark.css';

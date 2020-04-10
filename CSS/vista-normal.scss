@@ -30,6 +30,10 @@ body {
   display: none;
 }
 
+.logo_dark{
+  visibility: hidden;
+}
+
 .block-title {
   display: block;
   width: 100%;
@@ -39,10 +43,11 @@ body {
   border-color: black;
   margin: auto;
 
-  & span {
+  & h2 {
     color: white;
-    margin: 20px 0 0 10px;
     font-family: "Chakra Petch";
+    font-size: 16px;
+    margin: 7px 0 0 7px;
   }
 }
 
@@ -247,7 +252,6 @@ body {
 .desplegable_boton {
   width: 1057px;
   height: 36px;
-  //margin: 1rem 0 0 1rem;
   text-align: left;
   margin-left: 1rem;
   background: #f0f0f0;

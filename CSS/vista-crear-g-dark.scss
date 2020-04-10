@@ -1,8 +1,8 @@
 //variables
-$color-gradient1: linear-gradient(to right, #4180f6, #f7c9f3);
+$color-gradient1: linear-gradient(to right, #2E32FB, #EE3EFE);
 $font-stack: "Chakra Petch";
 $font-size: 16px;
-$color-textos: #110038;
+$color-textos: white;
 
 @mixin botones() {
   background: #f7c9f3;
@@ -21,7 +21,7 @@ $color-textos: #110038;
 }
 
 body {
-  background-color: #fff4fd;
+  background-color: #151738;
   overflow-x: hidden;
   font-family: $font-stack;
 }
@@ -30,7 +30,7 @@ body {
   display: block;
   width: 100%;
   height: 32px;
-  background-image: linear-gradient(to right, #4180f6, #f7c9f3);
+  background-image: $color-gradient1;
   border: solid 0.5px;
   border-color: black;
   margin: auto;
@@ -70,18 +70,19 @@ body {
 }
 
 .boton_tema {
-  background: #f7c9f3;
+  background: #EE3EFE;
   border: 1px solid #110038;
   height: 36px;
   width: 144px;
   font-family: $font-stack;
+  color: $color-textos;
   font-size: $font-size;
   text-decoration: none;
   box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 }
 
 .divflechas {
-  background: #f7c9f3;
+  background: #EE3EFE;
   border: 1px solid #110038;
   box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
   width: 36px;
@@ -131,7 +132,7 @@ body {
 // caja crear gif
 
 .contenedor {
-  background-color: #e6e6e6;
+  background-color: #B4B4B4;
   width: 860px;
   height: 548px;
   box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
@@ -140,8 +141,9 @@ body {
 }
 
 .titulo {
-  height: 24px;
+  height: 26px;
   background-image: $color-gradient1;
+  box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #ffffff;
   margin: auto;
 
   & span {
@@ -201,8 +203,10 @@ body {
 .comenzar {
   width: 144px;
   height: 36px;
-  background-color: #f7c9f3;
+  background-color: #EE3EFE;
+  color: $color-textos;
   font-family: $font-stack;
+  box-shadow: inset -1px 0px 0 0 #A72CB3, inset 1px 0px 0 0 #FFFFFF;
   font-size: 16px;
   cursor: pointer;
 }
@@ -223,7 +227,7 @@ body {
 }
 
 .divCamara {
-  background: #f7c9f3;
+  background: #EE3EFE;
   border: 1px solid #110038;
   box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
   width: 36px;
@@ -232,7 +236,7 @@ body {
 }
 
 .boton_cam {
-  background: #f7c9f3;
+  background: #EE3EFE;
   border: 1px solid #110038;
   height: 35px;
   width: 144px;
@@ -244,6 +248,7 @@ body {
 
 .imagen-cam-select {
   padding: 8px 5px 5px 5px;
+  
 }
 // CLASES DE JS
 

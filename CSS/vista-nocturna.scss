@@ -26,6 +26,10 @@ body {
     font-family: $font-stack;
 }
 
+.logo_light{
+    visibility: hidden;
+  }
+
 
 .block-title {
     display: block;
@@ -36,11 +40,13 @@ body {
     border-color: black;
     margin: auto;
 
-    & span {
+    & h2 {
         color: white;
-        margin: 20px 0 0 10px;
         font-family: 'Chakra Petch';
-    }
+        font-size: 16px;
+        margin: 7px 0 0 7px;
+    }   
+
 }
 
 .encabezado {
@@ -52,62 +58,76 @@ body {
 
 //boton select
 
-.selectdiv {
+//boton seleccion de tema
+
+.boton_selection {
+    display: flex;
+    flex-direction: column;
     position: relative;
-    min-width: 144px;
-    height: 36px;
-    bottom: 5px
-}
-
-.selectdiv:after {
-    content: '\f078';
-    font: normal normal normal 17px/1 FontAwesome;
-    color: black;
-    right: 11px;
-    top: 6px;
-    height: 20px;
-    padding: 10px 0px 0px 8px;
-    border-left: 1px solid black;
-    position: absolute;
-    pointer-events: none;
-}
-
-/* IE11 hide native button (thanks Matt!) */
-select::-ms-expand {
-    display: none;
-}
-
-.selectdiv select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    /* Add some styling */
-
-    display: block;
-    width: 100%;
-    max-width: 144px;
-    height: 36px;
-    float: right;
-    margin: 5px 0px;
-    padding: 0px 24px;
-    font-size: 16px;
-    line-height: 1.75;
-    color: #333;
-    //background-color: #ffffff;
-    background-image: none;
-    //border: 1px solid #0ebeff;
-    -ms-word-break: normal;
-    word-break: normal;
-    background: #F7C9F3;
+    
+    
+  }
+  .contenedor_uno {
+    display: inline-flex;
+    
+  }
+  
+  .boton_tema {
+    background: #EE3EFE;
     border: 1px solid #110038;
-    box-shadow: inset -1px -1px 0 0 #997D97;
-}
-
-
-
-
-
-
+    color: white;
+    height: 36px;
+    width: 144px;
+    font-family: $font-stack;
+    font-size: $font-size;
+    text-decoration: none;
+    box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  }
+  
+  .divflechas {
+    background: #EE3EFE;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+    width: 36px;
+    height: 34px;
+    margin-right: 12px;
+    text-align: center;
+  }
+  
+  .imagen-select {
+    padding-top: 14px;
+  }
+  
+  .temas {
+    width: 172px;
+    background-color: #e6e6e6;
+    height: 91px;
+    box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+    display: none;
+    flex-direction: column;
+    padding: 5px;
+    position: absolute;
+    bottom: -103px;
+  }
+  
+  .sailor_botones {
+    height: 36px;
+    width: 150px;
+    text-align: left;
+    margin: 5px 0 2px 2px;
+    padding-left: 2px;
+  
+    & span {
+      font-family: $font-stack;
+      font-size: $font-size;
+    }
+  }
+  
+  .sailor_botones:hover{
+        border: solid 0.2px #CCA6C9;
+    
+  }
+  //------
 //------
 
 
@@ -181,43 +201,42 @@ select::-ms-expand {
     background-color: #e6e6e6;
     border: 1px solid #808080;
     box-shadow: inset -1px -1px 0 0 #B4B4B4;
-    color: #8F8F8F;
+    //color: #8F8F8F;
 }
 
 
 //botones desplegables
 
+//botones desplegables
+
 .desplegable {
-    display: none;
-    background: #E6E6E6;
-    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+    display: flex;
+    visibility: hidden;
+    background: #e6e6e6;
+    box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
     height: 137px;
     align-items: flex-start;
     flex-direction: column;
-
-}
-
-.desplegable_boton {
-
+  }
+  
+  .desplegable_boton {
     width: 1057px;
     height: 36px;
-    //margin: 1rem 0 0 1rem;
     text-align: left;
     margin-left: 1rem;
-    background: #F0F0F0;
+    background: #f0f0f0;
     border: 1px solid #808080;
-    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+    box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
     margin-top: 6px;
-
+  
     & span {
-        margin-left: 1rem;
-        color: black;
-        font-size: 15px;
-
+      margin-left: 1rem;
+      color: black;
+      font-size: 15px;
     }
-
-
-}
+  }
+  
+  
 
 
 
@@ -255,14 +274,6 @@ select::-ms-expand {
     text-decoration: none;
     color: $color-textos;
 
-    // & :hover {
-    //     background-color: #d273dc;
-    //     border: solid 1px;
-    //     border-style: dotted;
-    //     width: 144px;
-    //     height: 35px;
-
-    // }
 }
 
 .button-create:hover {
@@ -382,28 +393,36 @@ select::-ms-expand {
 
 } 
 
+.card:hover{
+    background-color: black;
+    outline: dotted 2px black;
+    outline-offset: - 5px;
+    
+  
+  }
+
 .card-one {
-    background-image: linear-gradient(to right, #2E32FB, #EE3EFE);
+    background-image: linear-gradient(to right, #4180f6, #f7c9f3);
     display: flex;
     justify-content: space-between;
     height: 27px;
-    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+    box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
     border: solid 1px;
-    border-color: #FFFFFF;
-
-    & span {
-        font-weight: bold;
-        font-family: $font-stack;
-        font-size: 16px;
-        text-align: left;
-        margin: 2px 0 0 10px;
-        color: white;
-
+    border-color: #ffffff;
+  
+    & h6 {
+      font-weight: bold;
+      font-family: $font-stack;
+      font-size: 14px;
+      text-align: left;
+      margin: 4px 0 0 10px;
+      color: white;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow:hidden;
     }
-
-
-}
-
+  }
+  
 .boton-cerrar {
 
     display: block;
@@ -429,14 +448,13 @@ select::-ms-expand {
     left: 1rem;
 
     &:hover {
-        background: #110038;
-        box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+        background-color: #110038;
+        box-shadow: inset -2px -2px 0 0 #284f99, inset 2px 2px 0 0 #ffffff;
         cursor: pointer;
-        border-style: dotted;
-        border: 1px solid #110038;
+        outline: dotted 2px black;
+        outline-offset: - 4px;
+      }
     }
-
-}
 
 
 //grilla 2
@@ -451,6 +469,12 @@ select::-ms-expand {
     border: solid 1px;
     border-color: #FFFFFF;
 }
+
+.card_t:hover{
+    outline: dotted 2px black;
+    outline-offset: - 6px;
+
+  }
 
 
 // .trend-grid {
