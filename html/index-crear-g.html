@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="..\CSS\vista-crear-g-dark.css">
+    <link id="themeId" rel="stylesheet" href="..\CSS\vista-crear-g-light.css">
 
     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/9dd00af5f8.js" crossorigin="anonymous"></script>
@@ -26,8 +26,10 @@
         <section class="encabezado">
 
             <div>
-                <a href="#" id="back"><img src="/assets/arrow.svg" alt="flecha_para_volver"></a>
-                <img src="/assets/gifOF_logo.png" alt="logo-normal">
+                <a href="http://127.0.0.1:5500/index.html" id="back"><img src="/assets/arrow.svg"
+                        alt="flecha_para_volver"></a>
+                <img id="logoTag" src="/assets/gifOF_logo.png" alt="logo-normal">
+
             </div>
 
             <div class="botones">
@@ -37,7 +39,7 @@
 
                     <div class="contenedor_uno">
 
-                        <button class="boton_tema" id="tema">Temas</button>
+                        <button class="boton_tema" id="temabtn">Temas</button>
 
                         <div class="divflechas" id="divflechas">
                             <img class="imagen-select" src="/assets/dropdown.svg" alt="arrow_dropdown_web_theme">
@@ -105,9 +107,9 @@
                 </div>
             </div>
         </div>
-        <video id="video" class="video" autoplay></video>
+        <video id="video" class="video" autoplay ></video>
 
-        <div id="contenedorBotones" class="contenedor_botones">
+      <div id="contenedorBotones" class="contenedor_botones">
 
             <button class="cancelar">Cancelar</button>
             <button class="comenzar" id="comenzar">Comenzar</button>
@@ -131,24 +133,57 @@
 
             <div class="contenedor_btn_funciones" id="funciones">
 
-                <div class="subir_repetir">
-                    <button class="repetir back" id="repetir">Repetir Captura</button>
-                    <button class="subir up" id="boton_subir">Subir</button>
-                </div>
 
                 <button id="boton_preview" class="ultimo_boton"> Ver</button>
-
 
                 <button id="boton_listo" class="hide">Listo</button>
 
             </div>
         </div>
+        <div class="subir_repetir">
+            <button class="repetir back" id="repetir">Repetir Captura</button>
+            <button class="subir up" id="boton_subir">Subir</button>
+        </div>
+
+          <!-- contenedor de carga de gif -->
+          <div class="seccion_carga_gif" id="seccion_carga_gif">
+
+            <img src="/assets/globe_img.png" alt="subiendo_gif">
+            <h2>Estamos subiendo tu guifo…</h2>
+            <div class="timerBarSubiendo">
+            
+                <div id="barraSubiendo"  class="barra">
+                    <div class="progreso"></div>
+                    <div class="progreso"></div>
+                    <div class="progreso"></div>
+                    <div class="progreso"></div>
+                    <div class="progreso"></div>
+                    <div class="progreso"></div>
+                    <div class="progreso"></div>
+                    <div class="progreso"></div>
+                    <div class="progreso"></div>
+                    <div class="progreso"></div>
+                    <div class="progreso"></div>
+                    <div class="progreso"></div>
+                    <div class="progreso"></div>
+                    <div class="progreso"></div>
+                    <div class="progreso"></div>
+                    <div class="progreso"></div>
+                    <div class="progreso"></div>
+                </div>
+            </div>
+            <p>Tiempo restante: <span> 38 años</span> algunos minutos</p>
+
+          </div>
+
+          <!-- Timer y barra de carga -->
+
         <section class="sectionContador">
             <div class="timer timerDisplay" id="timer"></div>
 
             <!-- barra de carga -->
 
-            <div id="timerBar" class="timeBar">
+            <div id="timerBar" class="timerBar">
                 <div class="play">
                     <img src="/assets/forward.svg" alt="play_button">
                 </div>
@@ -177,6 +212,8 @@
 
 
     </section>
+
+
 
 
 

@@ -94,7 +94,6 @@ body {
   padding-top: 14px;
 }
 
-
 .temas {
   width: 172px;
   background-color: #e6e6e6;
@@ -120,9 +119,8 @@ body {
   }
 }
 
-.sailor_botones:hover{
-      border: solid 0.2px #CCA6C9;
-  
+.sailor_botones:hover {
+  border: solid 0.2px #cca6c9;
 }
 .sailor_botones:hover {
   border: solid 0.2px #cca6c9;
@@ -164,7 +162,7 @@ body {
   display: none;
 }
 
-.contenedorCargaGif{
+.contenedorCargaGif {
   background-color: white;
   width: 670px;
   height: 300px;
@@ -213,7 +211,7 @@ body {
   display: inline-block;
   visibility: hidden;
   position: absolute;
-  bottom : 18px;
+  bottom: 18px;
   right: 49px;
 }
 
@@ -261,8 +259,8 @@ body {
 }
 
 .subir_repetir {
-  position: relative;
-  left: 340px;
+  position: absolute;
+  right: 31px;
   bottom: 12px;
 }
 
@@ -315,8 +313,8 @@ body {
   position: absolute;
 }
 
-.timerDisplay{
-   display: none;
+.timerDisplay {
+  display: none;
 }
 
 ////
@@ -337,32 +335,39 @@ body {
 }
 
 //barra de carga
-.sectionContador{
-  display: flex;
+.sectionContador {
   justify-content: space-between;
-
+  display: inline-flex;
+  position: absolute;
+  bottom: 17px;
+  left: 14px;
 }
 
-.play{
-  background-color: #F7C9F3;
+.play {
+  background-color: #f7c9f3;
   width: 23px;
   height: 23px;
   border: 1px solid black;
   margin-right: 2px;
-  & img{
+  & img {
     margin: 6px 5px 5px 9px;
   }
-
 }
 
-.timeBar{
+.timerBar {
   width: auto;
   display: none;
-  //background: #b4b4b4;
+  background: #b4b4b4;
   //box-shadow: inset -2px -2px 0 0 gray, inset 2px 2px 0 0 #000000;
   position: relative;
   left: 117px;
+}
 
+.timerBarSubiendo {
+  width: auto;
+  display: inline-block;
+  margin-top: 36px;
+  background: #b4b4b4
 }
 
 .barra {
@@ -374,10 +379,36 @@ body {
 }
 
 .progreso {
-  background-color:#F7C9F3;
+  background-color: #999999;
   width: 12px;
   height: 20px;
   border: 1px solid white;
+}
+
+// seccion_carga_Gif
+
+.seccion_carga_gif {
+  background-color: white;
+  width: 840px;
+  height: 400px;
+  display: none;
+  position: relative;
+  left: 10px;
+  bottom: 467px;
+  border: 1px solid #979797;
+  box-shadow: inset -2px -2px 0 0 #e6e6e6;
+  text-align: center;
+  
+}
+
+.seccion_carga_gif>img{
+
+  margin-top: 82px;
+}
+
+.seccion_carga_gif>p>span{
+
+  text-decoration: line-through;
 }
 
 //Grilla
