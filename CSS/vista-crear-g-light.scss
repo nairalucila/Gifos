@@ -35,10 +35,11 @@ body {
   border-color: black;
   margin: auto;
 
-  & span {
+  & h3 {
     color: white;
-    margin: 20px 0 0 10px;
+    margin: 4px 0 0 10px;
     font-family: "Chakra Petch";
+    font-size: 16px;
   }
 }
 
@@ -162,11 +163,22 @@ body {
 }
 
 .contenedorItems {
-  margin: 3rem 0 0 1.5rem;
+  margin: 4rem 0 0 2.5rem;
   height: 65%;
+  
+  
   & h4 {
     margin-left: 1rem;
   }
+}
+
+.instrucciones > ol > li {
+  list-style-type: none;
+  margin-bottom: 20px;
+}
+
+.instrucciones>p{
+  margin-bottom: 20px;
 }
 
 .hide {
@@ -353,9 +365,10 @@ body {
   border-color: #997c96;
   margin-top: 60px;
 
-  & p {
+  & h3 {
     padding: 5px;
     font-family: "Chakra Petch";
+    font-size: 15px;
   }
 }
 

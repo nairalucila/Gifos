@@ -22,10 +22,11 @@ body {
           box-shadow: 0 1px 0 0 #110038;
 }
 
-.block-title span {
+.block-title h3 {
   color: white;
-  margin: 20px 0 0 10px;
+  margin: 4px 0 0 10px;
   font-family: "Chakra Petch";
+  font-size: 16px;
 }
 
 .encabezado {
@@ -176,12 +177,21 @@ body {
 }
 
 .contenedorItems {
-  margin: 3rem 0 0 1.5rem;
+  margin: 4rem 0 0 2.5rem;
   height: 65%;
 }
 
 .contenedorItems h4 {
   margin-left: 1rem;
+}
+
+.instrucciones > ol > li {
+  list-style-type: none;
+  margin-bottom: 20px;
+}
+
+.instrucciones > p {
+  margin-bottom: 20px;
 }
 
 .hide {
@@ -387,9 +397,10 @@ body {
   margin-top: 60px;
 }
 
-.trend p {
+.trend h3 {
   padding: 5px;
   font-family: "Chakra Petch";
+  font-size: 15px;
 }
 
 .preview-video {
