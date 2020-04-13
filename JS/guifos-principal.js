@@ -1,6 +1,5 @@
-// SELECCIONAS ELEMENTOS
+///////////// ELEMENTOS /////////////
 
-// api url
 const API_KEY = "DsV5wrnJyENgZWApbRea3zpRa7YSeHgd";
 const API_URL_SEARCH = "http://api.giphy.com/v1/gifs/search";
 
@@ -8,8 +7,7 @@ const titulosSugeridos = document.getElementsByClassName("card-one");
 const temas = document.getElementById("temas");
 const botonTemas = document.getElementById("temabtn");
 
-////////////////////////////////////////////////////////////////////
-///////////////////////////////////// CAMPO BUSQUEDA //////////////
+//////////// CAMPO BUSQUEDA //////////////
 
 const botonBuscar = document.getElementById("buscador");
 const campoBusqueda = document.getElementById("miBusqueda");
@@ -25,7 +23,7 @@ function clickBotonBuscar(evento) {
 
 botonBuscar.onclick = clickBotonBuscar;
 
-//TRAER RESP DE SAILOR MOON
+//////////// TRAER RESP DE SAILOR MOON ///////////////////
 
 let btnMoonSearch = document.getElementById("moon");
 
@@ -36,9 +34,7 @@ function btnMoonClick() {
   });
 }
 
-// btnMoonSearch.addEventListener('click', btnMoonCallback)
-
-// TRAER RESP OTTERS
+////////////// TRAER RESP OTTERS ////////////////////
 
 let otters = document.getElementById("otters");
 
@@ -48,7 +44,7 @@ function traerGifsOtters() {
   });
 }
 
-// TRAER RESP PUPPY
+////////////// TRAER RESP PUPPY ////////////////
 let puppys = document.getElementById("puppy");
 
 function traerGifPuppy() {
@@ -79,7 +75,6 @@ sectionBusqueda.addEventListener("focusout", function (e) {
   }
 
   if (e.relatedTarget.id === "otters") {
-    //console.log('otter')
     traerGifsOtters();
     cambiarNombreSpanTendencia("baby otter");
     return;
@@ -92,7 +87,7 @@ sectionBusqueda.addEventListener("focusout", function (e) {
   }
 });
 
-// boton buscar
+////// boton buscar
 
 campoBusqueda.addEventListener("focus", function () {
   botonBuscar.style.backgroundColor = "#F7C9F3";
@@ -102,8 +97,7 @@ campoBusqueda.addEventListener("focusout", () => {
   botonBuscar.style.backgroundColor = "#e6e6e6";
 });
 
-/////////////////////////////////////////////////////////////
-////////////////////////////////// TEMA /////////////////////
+//////////////////////// TEMA /////////////////////
 
 const linkNight = "../CSS/vista-nocturna.css";
 const linkDay = "../CSS/vista-normal.css";
@@ -115,19 +109,19 @@ const btnSDay = document.getElementById("sailorD");
 const btnSNight = document.getElementById("sailorN");
 const linkHojaEstilos = document.getElementById("themeId");
 
-let linkLogoDark = 'assets/gifOF_logo_dark.png';
-let linkLogoLight = 'assets/gifOF_logo.png';
-let logoDarkImg = document.getElementById('logoDarkImg');
+let linkLogoDark = "assets/gifOF_logo_dark.png";
+let linkLogoLight = "assets/gifOF_logo.png";
+let logoDarkImg = document.getElementById("logoDarkImg");
 
 function traerTemaLocalStorage() {
   let temaAhora = localStorage.getItem("tema");
 
   if (temaAhora === "NIGHT") {
     linkHojaEstilos.setAttribute("href", linkNight);
-    logoDarkImg.setAttribute('src', linkLogoDark);
+    logoDarkImg.setAttribute("src", linkLogoDark);
   } else {
     linkHojaEstilos.setAttribute("href", linkDay);
-    logoDarkImg.setAttribute('src', linkLogoLight);
+    logoDarkImg.setAttribute("src", linkLogoLight);
   }
 }
 traerTemaLocalStorage();
@@ -135,13 +129,13 @@ traerTemaLocalStorage();
 btnSDay.addEventListener("click", function () {
   linkHojaEstilos.setAttribute("href", linkDay);
   temas.style.display = "none";
-  logoDarkImg.setAttribute('src', linkLogoLight);
+  logoDarkImg.setAttribute("src", linkLogoLight);
   localStorage.setItem("tema", "DEFAULT");
 });
 btnSNight.addEventListener("click", function () {
   linkHojaEstilos.setAttribute("href", linkNight);
   temas.style.display = "none";
-  logoDarkImg.setAttribute('src', linkLogoDark);
+  logoDarkImg.setAttribute("src", linkLogoDark);
 
   localStorage.setItem("tema", "NIGHT");
 });
@@ -159,25 +153,7 @@ botonTemas.addEventListener("focusout", function (ev) {
 });
 let temaActual = DIA_THEME_NAME;
 
-// botonTemas.addEventListener("focusout", function () {
-//   const sailorDay = document.getElementById("themeId");
-
-//   if (temaActual === DIA_THEME_NAME) {
-//     sailorDay.setAttribute("href", linkNight);
-
-//     temaActual = NOCHE_THEME_NAME;
-//   } else {
-//     sailorDay.setAttribute("href", linkDay);
-
-//     temaActual = DIA_THEME_NAME;
-//   }
-
-//   temas.style.display = "none";
-// });
-
-//////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////// TENDENCIA /////////////////////////////////////
-//let botonVerMasGrillas = document.getElementById('card').children;
+//////////////////////// TENDENCIA ///////////////////////
 
 function traeGifSearchYagregarTendencia(palabra, limite = 20, callback) {
   const urlTendencia =
@@ -251,8 +227,7 @@ function agregaGifsaTendencia(data) {
 
 traeGifSearchYagregarTendencia();
 
-//////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////// SUGERIDOS //////////////////////////////
+///////////////////////////// SUGERIDOS //////////////////////////////
 
 function traerGifsSugeridas(valor) {
   const urlSugeridos =
@@ -266,11 +241,8 @@ function traerGifsSugeridas(valor) {
     .then((param) => {
       let imagenes = param.data;
 
-      //console.log('leeme',param.data)
       setearSugueridos(imagenes);
       setearTituloSugeridos(imagenes);
-
-      //ACA TENGO QUE HACER LO DEL TEXTO
     })
     .catch(function (error) {
       console.log(error);
@@ -307,7 +279,7 @@ locationCreateGifs.setAttribute(
   window.location.origin + "/html/index-crear-g.html"
 );
 
-/////////////////////////// VISITAS //////////////////////////////
+/////////////////////////// VISITAS ////////////////////////
 
 let tituloPagina = document.getElementById("h2Encabezado");
 let numeroVisitas = document.getElementById("visitas");

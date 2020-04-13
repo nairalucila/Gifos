@@ -90,7 +90,7 @@ let botonCamara = document.getElementById("contenedorBtnCaptura");
 let botonListo = document.getElementById("boton_listo");
 let divListo = document.getElementById("divListo");
 
-let mediaRecorder; //variable del media recorder
+let mediaRecorder; 
 
 function startCamera() {
   navigator.mediaDevices
@@ -104,7 +104,7 @@ function startCamera() {
 let videoData = [];
 let isRecording = false;
 
-/////// REPETIR CAPTURA ///////////////////////
+////////////// REPETIR CAPTURA ////////////////////
 
 let repetirCaptura = document.getElementById("repetir");
 
@@ -114,7 +114,7 @@ repetirCaptura.addEventListener("click", function (e) {
 });
 
 function record(stream) {
-  video.srcObject = stream; //lo q tome de la camara lo pasa como string
+  video.srcObject = stream; 
   video.play();
 
   botonCaptura.addEventListener("click", function (ev) {
@@ -122,7 +122,7 @@ function record(stream) {
 
     getTimer();
 
-    // aca hay una var definida como falso. Cuando isRecoding es true, graba.
+    // var definida como falso. Cuando isRecoding es true, graba.
     isRecording = !isRecording;
 
     mediaRecorder = new RecordRTC(stream, {
@@ -147,7 +147,7 @@ function record(stream) {
   });
 }
 
-///////// Pones listo ///////////////////////////////
+////////////////////// LISTO ////////////////////////////
 let seccionCargaGif = document.getElementById("seccion_carga_gif");
 
 botonListo.addEventListener("click", function () {
@@ -160,8 +160,7 @@ botonListo.addEventListener("click", function () {
 
   mediaRecorder.stopRecording(stopRecordingCallback);
 
-  // repetir capt
-
+  
   stopedInterval = true;
 });
 
@@ -175,16 +174,15 @@ function stopRecordingCallback(e) {
   mediaRecorder.camera.stop();
 
   quitarBotonListo();
-  /////////////////let blob = this.getBlob();
-
-  // ocultamos video elemento dom
+ 
+  // ocultar video del Dom
   video.style.display = "none";
 
-  // creamos contenedor para el preview
+  // crear contenedor para el preview
 
   const contenedorPreviewUltimo = document.getElementById("video_preview");
 
-  // lo agregamos como hijo al contenedorPreview
+  // agregar como hijo al contenedorPreview
   contenedorPreview.classList.add("preview-video");
   contenedorPreview.style.backgroundImage =
     "url(" + mediaRecorder.toURL() + ")";
@@ -197,7 +195,7 @@ function stopRecordingCallback(e) {
 
   document.getElementById("contenedorCrearGif").appendChild(contenedorPreview);
 
-  //detiene la camara y se crea un formData
+  ////formData
   let form = new FormData();
   form.append("file", mediaRecorder.getBlob(), "miGif.gif"); //a esta funcion se le pasan datos y el get blob contiene el gif
 
@@ -215,13 +213,13 @@ function stopRecordingCallback(e) {
 
     let barraDos = document.getElementById("barraSubiendo");
     arrancarBarraDeCarga(barraDos);
-    enviarGiphy(form) //cuando se hace click en boton subir - se ejcuta la funcion async que trae los datos del fetch con method post y body
+    enviarGiphy(form) 
       .then((rep) => {
         traerGifGuardarGaleria(rep.data.id);
         previewContenedor.style.display = "block";
         seccionCargaGif.style.display = "none";
         contenedorCrearGif.style.display = "none";
-      }); //aca accedemos al id del gif y se lo pasamos a la fun que guarda ls
+      }); 
 
     // ocultar boton subir
   });
@@ -243,7 +241,6 @@ function quitarBotonListo() {
 const API_KEY = "DsV5wrnJyENgZWApbRea3zpRa7YSeHgd";
 const API_URL_UPLOAD = "http://upload.giphy.com/v1/gifs";
 
-//se le pasa un parametro que contiene el blob, que viene de FormData - ver linea 83
 async function enviarGiphy(form) {
   let response = await fetch(API_URL_UPLOAD + "?api_key=" + API_KEY, {
     method: "POST",
@@ -278,7 +275,6 @@ function traerGifGuardarGaleria(gif) {
 
       localStorage.setItem("gifs", JSON.stringify(gifs));
 
-      // se generan de nuevo los gifs
       iterarYAgregarEl();
     })
     .catch((e) => console.error(e));
@@ -316,7 +312,7 @@ function iterarYAgregarEl() {
 
 iterarYAgregarEl();
 
-//////////////////////// CONTADOR /////////////////
+///////////////////// CONTADOR /////////////////
 
 let timerBar = document.getElementById("timerBar");
 
@@ -391,4 +387,4 @@ let linkaPaginaPrincipal = document.getElementById("back");
 
 linkaPaginaPrincipal.setAttribute("href", window.location.origin);
 
-//////////// Contador de Visitas ///////////
+
