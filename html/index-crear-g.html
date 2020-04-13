@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.6/RecordRTC.js"></script>
 
     <title>Gifos</title>
+
 </head>
 
 <body>
@@ -26,8 +27,8 @@
         <section class="encabezado">
 
             <div>
-                <a href="http://127.0.0.1:5500/index.html" id="back"><img src="/assets/arrow.svg"
-                        alt="flecha_para_volver"></a>
+                <a href="" id="back"><img src="/assets/arrow.svg" alt="flecha_para_volver"></a>
+
                 <img id="logoTag" src="/assets/gifOF_logo.png" alt="logo-normal">
 
             </div>
@@ -57,9 +58,32 @@
 
             </div>
 
-        </section>
-
     </header>
+
+
+
+    <!-- preview -->
+
+    <section class="preview" id="preview_contenedor">
+
+        <div class="preview_titulo">
+            <span>Guifo Subido con Éxito</span>
+        </div>
+
+        <!-- contenedor interno -->
+        <div class="contenedor_interno" id="contenedorInterno">
+            <video src="" id="video_preview"></video>
+
+            <div class="hijoDos">
+
+                <h2>Guifo Creado con Éxito</h2>
+                <button class="botones_interno" id="copiar_enlace"> Copiar Enlace Guifo </button>
+                <a id="descargar" download="gif-descaerga.gif"> <button class="botones_interno" > Descargar Guifo </button></a>
+            </div>
+        </div>
+
+    </section>
+
 
     <!-- VENTANA CREAR GIF -->
 
@@ -107,9 +131,9 @@
                 </div>
             </div>
         </div>
-        <video id="video" class="video" autoplay ></video>
+        <video id="video" class="video" autoplay></video>
 
-      <div id="contenedorBotones" class="contenedor_botones">
+        <div id="contenedorBotones" class="contenedor_botones">
 
             <button class="cancelar">Cancelar</button>
             <button class="comenzar" id="comenzar">Comenzar</button>
@@ -120,7 +144,7 @@
 
         <div class="boton_captura" id="boton_captura">
 
-            <div class="contenedorBtnCaptura">
+            <div id="contenedorBtnCaptura" class="contenedorBtnCaptura">
                 <div class="divCamara" id="divCamara">
 
                     <img id="img-boton-captura" class="imagen-cam-select" src="/assets/camera.svg" alt="camera_button">
@@ -131,28 +155,33 @@
 
             </div>
 
+            <!-- Boton Listo -->
+
             <div class="contenedor_btn_funciones" id="funciones">
+                <!-- img -->
+                <div class="divListo" id="divListo">
 
+                    <img id="img-boton-captura" class="imagen-cam-select" src="/assets/recording.svg"
+                        alt="camera_button">
 
-                <button id="boton_preview" class="ultimo_boton"> Ver</button>
-
+                </div>
                 <button id="boton_listo" class="hide">Listo</button>
-
             </div>
         </div>
+
         <div class="subir_repetir">
             <button class="repetir back" id="repetir">Repetir Captura</button>
             <button class="subir up" id="boton_subir">Subir</button>
         </div>
 
-          <!-- contenedor de carga de gif -->
-          <div class="seccion_carga_gif" id="seccion_carga_gif">
+        <!-- contenedor de carga de gif -->
+        <div class="seccion_carga_gif" id="seccion_carga_gif">
 
             <img src="/assets/globe_img.png" alt="subiendo_gif">
             <h2>Estamos subiendo tu guifo…</h2>
             <div class="timerBarSubiendo">
-            
-                <div id="barraSubiendo"  class="barra">
+
+                <div id="barraSubiendo" class="barra">
                     <div class="progreso"></div>
                     <div class="progreso"></div>
                     <div class="progreso"></div>
@@ -174,9 +203,9 @@
             </div>
             <p>Tiempo restante: <span> 38 años</span> algunos minutos</p>
 
-          </div>
+        </div>
 
-          <!-- Timer y barra de carga -->
+        <!-- Timer y barra de carga -->
 
         <section class="sectionContador">
             <div class="timer timerDisplay" id="timer"></div>

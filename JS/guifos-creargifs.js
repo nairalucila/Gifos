@@ -6,10 +6,10 @@ const link_logo_dark = "/assets/gifOF_logo_dark.png";
 const link_logo_light = "/assets/gifOF_logo.png";
 let logoTag = document.getElementById("logoTag");
 
+//desplegar botonera
 let desplegable = document.getElementById("temas");
 let botonTema = document.getElementById("temabtn");
 
-//desplegar botonera
 const btnSDay = document.getElementById("sailorD");
 const btnSNight = document.getElementById("sailorN");
 
@@ -22,32 +22,41 @@ botonTema.addEventListener("click", function () {
   desplegable.style.display = "flex";
 });
 
+function traerTemaLocalStorage() {
+  let temaAhora = localStorage.getItem("tema");
+
+  if (temaAhora === "NIGHT") {
+    eventoTemaNoche();
+  } else {
+    eventoTemaDia();
+  }
+}
+traerTemaLocalStorage();
+
 let temaActual = DIA_THEME_NAME;
 
-btnSNight.addEventListener("click", function (ev) {
-  if (temaActual === DIA_THEME_NAME) {
-    hojaEstilo.setAttribute("href", LINK_NOCHE);
-    logoTag.setAttribute("src", link_logo_dark);
-    desplegable.style.display = "none";
+function eventoTemaNoche() {
+  hojaEstilo.setAttribute("href", LINK_NOCHE);
+  logoTag.setAttribute("src", link_logo_dark);
+}
 
-    temaActual = DIA_THEME_NAME;
-    localStorage.setItem("tema", hojaEstilo.setAttribute("href", LINK_NOCHE));
-  }
+function eventoTemaDia() {
+  hojaEstilo.setAttribute("href", LINK_DIA);
+  logoTag.setAttribute("src", link_logo_light);
+}
+
+btnSNight.addEventListener("click", function () {
+  eventoTemaNoche();
+  desplegable.style.display = "none";
+
+  localStorage.setItem("tema", "NIGHT");
 });
 
-localStorage.getItem("tema");
+btnSDay.addEventListener("click", function () {
+  eventoTemaDia();
+  desplegable.style.display = "none";
 
-btnSDay.addEventListener("click", function (ev) {
-  // si tema == noche
-  if (temaActual === DIA_THEME_NAME) {
-    hojaEstilo.setAttribute("href", LINK_DIA);
-    logoTag.setAttribute("src", link_logo_light);
-    desplegable.style.display = "none";
-
-    temaActual = NOCHE_THEME_NAME;
-    localStorage.setItem("tema", hojaEstilo.setAttribute("href", LINK_NOCHE));
-    console.log("algo");
-  }
+  localStorage.setItem("tema", "DEFAULT");
 });
 
 botonTema.addEventListener("focusout", function (ev) {
@@ -57,15 +66,6 @@ botonTema.addEventListener("focusout", function (ev) {
     return;
   }
 });
-
-function extraerTemaNocheLocalStorage() {
-  if (temaActual === NOCHE_THEME_NAME) {
-    localStorage.getItem("tema", hojaEstilo.setAttribute("href", LINK_NOCHE));
-  } else {
-    localStorage.getItem("tema", hojaEstilo.setAttribute("href", LINK_DIA));
-  }
-}
-extraerTemaNocheLocalStorage();
 
 /////////////////// VIDEO /////////////////
 const instrucciones = document.getElementById("contenedorItems");
@@ -86,8 +86,9 @@ botonComenzar.addEventListener("click", function (e) {
   startCamera();
 });
 
-let botonCamara = document.getElementById("cambtn");
+let botonCamara = document.getElementById("contenedorBtnCaptura");
 let botonListo = document.getElementById("boton_listo");
+let divListo = document.getElementById("divListo");
 
 let mediaRecorder; //variable del media recorder
 
@@ -121,22 +122,19 @@ function record(stream) {
       width: 832,
       height: 434,
       onGifRecordingStarted: function (e) {
-      console.log("esta grabando");
+        console.log("esta grabando");
       },
     });
-    // mediaRecorder.ondataavailable = function(e) {
-    //   videoData.push(e.data);
-    // };
 
     mediaRecorder.startRecording();
     mediaRecorder.camera = stream;
-
 
     botonCamara.style.display = "none";
     botonListo.style.display = "block";
     botonListo.style.position = "relative";
     botonListo.classList.add("boton_cam");
     botonListo.style.backgroundColor = "#FF6161";
+    divListo.style.display = "block";
   });
 }
 
@@ -145,13 +143,15 @@ let seccionCargaGif = document.getElementById("seccion_carga_gif");
 
 botonListo.addEventListener("click", function () {
   timerBar.style.display = "flex";
-  
+
   let barra = document.getElementById("barra");
-  arrancarBarraDeCarga(barra)
-  
+  arrancarBarraDeCarga(barra);
+
   console.log("listoo");
 
   mediaRecorder.stopRecording(stopRecordingCallback);
+
+  // repetir capt
 
   stopedInterval = true;
 });
@@ -162,22 +162,31 @@ let botonSubir = document.getElementById("boton_subir");
 let botonRepetir = document.getElementById("repetir");
 
 function stopRecordingCallback(e) {
- mediaRecorder.camera.stop();
-  // mediaRecorder.resumeRecording()
+  mediaRecorder.camera.stop();
+
   quitarBotonListo();
-  let blob = this.getBlob();
-  // let videoUrl = window.URL.createObjectURL(blob);
-  // console.log(mediaRecorder)
-  let videoEl = document.getElementById('video')
-  console.log(this.toURL())
-  console.log('LOOOOOOOOOOL', window.URL)
-  // video.srcObject =this.getBlob()
-  // video.play()
-  // videoEl.play()
-  // mediaRecorder.getDataURL(function(e) {
-  //   videoEl.src= e
-  // });
-  // videoEl.play();
+  /////////////////let blob = this.getBlob();
+
+  // ocultamos video elemento dom
+  video.style.display = "none";
+
+  // creamos contenedor para el preview
+  const contenedorPreview = document.createElement("div");
+  const contenedorPreviewUltimo = document.getElementById("video_preview");
+
+  // lo agregamos como hijo al contenedorPreview
+  contenedorPreview.classList.add("preview-video");
+  contenedorPreview.style.backgroundImage =
+    "url(" + mediaRecorder.toURL() + ")";
+
+  contenedorPreviewUltimo.classList.add("video_preview");
+  contenedorPreviewUltimo.style.backgroundImage =
+    "url(" + mediaRecorder.toURL() + ")";
+
+  gifCreadoBlob = this.getBlob();
+
+  document.getElementById("contenedorCrearGif").appendChild(contenedorPreview);
+
   //detiene la camara y se crea un formData
   let form = new FormData();
   form.append("file", mediaRecorder.getBlob(), "miGif.gif"); //a esta funcion se le pasan datos y el get blob contiene el gif
@@ -190,6 +199,7 @@ function stopRecordingCallback(e) {
     esconderBarraDeCarga();
     seccionCargaGif.style.display = "block";
 
+    contenedorPreview.classList.remove("preview-video");
 
     let barraDos = document.getElementById("barraSubiendo");
     arrancarBarraDeCarga(barraDos);
@@ -214,7 +224,6 @@ function quitarBotonListo() {
   contenedor.classList.remove("contenedorItems");
 }
 
-
 ////////////////// FETCH /////////////////////////////
 
 const API_KEY = "DsV5wrnJyENgZWApbRea3zpRa7YSeHgd";
@@ -234,6 +243,9 @@ async function enviarGiphy(form) {
   return rep;
 }
 
+let embedUrl;
+let gifCreadoBlob;
+
 const API_URL_ENDPOINT = "http://api.giphy.com/v1/gifs/";
 
 function traerGifGuardarGaleria(gif) {
@@ -241,9 +253,14 @@ function traerGifGuardarGaleria(gif) {
     .then((response) => {
       return response.json();
     })
+
     .then((rep) => {
       let gifs = obtenerGifsLS();
       gifs.push(rep);
+
+      console.log("los gifs", rep);
+
+      embedUrl = rep.data.images.downsized.url;
 
       localStorage.setItem("gifs", JSON.stringify(gifs));
 
@@ -314,8 +331,26 @@ function getTimer() {
   }, 1000);
 }
 
-///////// BARRA DE CARGA ///////////////////
+////////////////// BOTONES LINKS PREVIEW /////////////////
+let botonCopiarEnlace = document.getElementById("copiar_enlace");
+let botonDescargar = document.getElementById("descargar");
 
+botonCopiarEnlace.addEventListener("click", function () {
+  navigator.clipboard.writeText(embedUrl).then(
+    function () {
+      console.log("Async: Copying to clipboard was successful!");
+    },
+    function (err) {
+      console.error(err);
+    }
+  );
+});
+
+botonDescargar.addEventListener("click", function () {
+  botonDescargar.setAttribute("href", URL.createObjectURL(gifCreadoBlob));
+});
+
+///////// BARRA DE CARGA ///////////////////
 
 function arrancarBarraDeCarga(param) {
   let count = 0;
@@ -335,3 +370,11 @@ function arrancarBarraDeCarga(param) {
 function esconderBarraDeCarga() {
   barra.style.display = "none";
 }
+
+//////////////// Link página ///////////////
+
+let linkaPaginaPrincipal = document.getElementById("back");
+
+linkaPaginaPrincipal.setAttribute("href", window.location.origin);
+
+//////////// Contador de Visitas ///////////

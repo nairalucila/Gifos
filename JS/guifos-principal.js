@@ -279,5 +279,27 @@ function setearSugueridos(param) {
 
 traerGifsSugeridas();
 
-///////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////// LLAMADAS API ////////////////////////////
+//////////////// Link página ///////////////
+
+let locationMisGifs = document.getElementById('misGifs');
+let locationCreateGifs = document.getElementById('createGifs');
+
+locationMisGifs.setAttribute('href', window.location.origin + '/html/index-crear-g.html');
+locationCreateGifs.setAttribute('href', window.location.origin + '/html/index-crear-g.html');
+
+
+/////////////////////////// VISITAS //////////////////////////////
+
+let tituloPagina = document.getElementById('h2Encabezado');
+let numeroVisitas = document.getElementById('visitas');
+
+console.log( 'leem' , numeroVisitas);
+
+
+let count = 100.000;
+  
+setInterval(() => {
+    numeroVisitas.textContent = numeroVisitas[count];
+    count++;
+
+    }),500;
