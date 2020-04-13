@@ -81,6 +81,12 @@ body {
   text-decoration: none;
   -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
           box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  cursor: pointer;
+}
+
+.boton_tema:hover {
+  outline: dotted 2px black;
+  outline-offset: -5px;
 }
 
 .divflechas {
@@ -92,6 +98,11 @@ body {
   height: 34px;
   margin-right: 12px;
   text-align: center;
+}
+
+.divflechas:hover {
+  outline: dotted 2px black;
+  outline-offset: -5px;
 }
 
 .imagen-select {
@@ -241,6 +252,7 @@ body {
   position: absolute;
   bottom: 18px;
   right: 49px;
+  cursor: pointer;
 }
 
 .contenedorBtnCaptura {
@@ -288,6 +300,7 @@ body {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  cursor: pointer;
 }
 
 .subir_repetir {
@@ -305,6 +318,7 @@ body {
   font-size: "Chakra Petch";
   font-size: 16px;
   background-color: #f0e5ee;
+  cursor: pointer;
 }
 
 .subir :hover {
@@ -323,6 +337,7 @@ body {
   font-size: 16px;
   background-color: #f0e5ee;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .back {
@@ -343,7 +358,7 @@ body {
   height: 25px;
   -webkit-box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
           box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
-  position: absolute;
+  position: relative;
 }
 
 .timerDisplay {
@@ -402,7 +417,7 @@ body {
   display: none;
   background: #b4b4b4;
   position: relative;
-  left: 117px;
+  left: 21px;
 }
 
 .timerBarSubiendo {
@@ -485,6 +500,11 @@ body {
           box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   margin: 0 auto;
   position: relative;
+  top: 10px;
+}
+
+.previewDisplay {
+  display: none;
 }
 
 .preview_titulo {
@@ -545,6 +565,7 @@ body {
           box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
   font-family: "Chakra Petch";
   font-size: 16px;
+  cursor: pointer;
 }
 
 #video_preview {

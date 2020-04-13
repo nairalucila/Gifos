@@ -42,63 +42,55 @@ function btnMoonClick() {
 
 let otters = document.getElementById("otters");
 
-function traerGifsOtters(){
-
-  traeGifSearchYagregarTendencia('baby otters', 20, function(){
-    
+function traerGifsOtters() {
+  traeGifSearchYagregarTendencia("baby otters", 20, function () {
     desplegar.style.visibility = "hidden";
-  })
-};
-
-// TRAER RESP PUPPY
-let puppys = document.getElementById('puppy')
-
-function traerGifPuppy(){
-  console.log('puppy')
-  traeGifSearchYagregarTendencia('puppy', 20, function(e){
-  
-    desplegar.style.visibility = 'hidden';
-  })
+  });
 }
 
+// TRAER RESP PUPPY
+let puppys = document.getElementById("puppy");
+
+function traerGifPuppy() {
+  console.log("puppy");
+  traeGifSearchYagregarTendencia("puppy", 20, function (e) {
+    desplegar.style.visibility = "hidden";
+  });
+}
 
 // click en input
 sectionBusqueda.addEventListener("click", function (e) {
   desplegar.style.visibility = "unset";
 });
 
+sectionBusqueda.addEventListener("focusout", function (e) {
+  console.log(e);
 
-sectionBusqueda.addEventListener('focusout', function(e){
-   console.log(e);
-
-   if (e.relatedTarget === null){
-
-    desplegar.style.visibility = 'hidden';
+  if (e.relatedTarget === null) {
+    desplegar.style.visibility = "hidden";
     return;
-   }
+  }
 
-   if (e.relatedTarget.id === 'moon'){
-     console.log('yupi')
-     btnMoonClick()
-     cambiarNombreSpanTendencia('sailor moon')
-     return;
-    }
-    
-    if (e.relatedTarget.id ==='otters'){
-      //console.log('otter')
-      traerGifsOtters()
-      cambiarNombreSpanTendencia('baby otter')
-      return;
-      
-    }
+  if (e.relatedTarget.id === "moon") {
+    console.log("yupi");
+    btnMoonClick();
+    cambiarNombreSpanTendencia("sailor moon");
+    return;
+  }
 
-    if(e.relatedTarget.id === 'puppy'){
-      traerGifPuppy();
-      cambiarNombreSpanTendencia('puppy')
-      return;
-    }
+  if (e.relatedTarget.id === "otters") {
+    //console.log('otter')
+    traerGifsOtters();
+    cambiarNombreSpanTendencia("baby otter");
+    return;
+  }
 
-})
+  if (e.relatedTarget.id === "puppy") {
+    traerGifPuppy();
+    cambiarNombreSpanTendencia("puppy");
+    return;
+  }
+});
 
 // boton buscar
 
@@ -121,28 +113,58 @@ const NOCHE_THEME_NAME = "NOCHE";
 //botones temas
 const btnSDay = document.getElementById("sailorD");
 const btnSNight = document.getElementById("sailorN");
+const linkHojaEstilos = document.getElementById("themeId");
+
+function traerTemaLocalStorage() {
+  let temaAhora = localStorage.getItem("tema");
+
+  if (temaAhora === "NIGHT") {
+    linkHojaEstilos.setAttribute("href", linkNight);
+  } else {
+    linkHojaEstilos.setAttribute("href", linkDay);
+  }
+}
+traerTemaLocalStorage();
+
+btnSDay.addEventListener("click", function () {
+  linkHojaEstilos.setAttribute("href", linkDay);
+  temas.style.display = "none";
+  localStorage.setItem("tema", "DEFAULT");
+});
+btnSNight.addEventListener("click", function () {
+  linkHojaEstilos.setAttribute("href", linkNight);
+  temas.style.display = "none";
+  localStorage.setItem("tema", "NIGHT");
+});
 
 botonTemas.addEventListener("click", function () {
   temas.style.display = "flex";
 });
 
+botonTemas.addEventListener("focusout", function (ev) {
+  if (ev.relatedTarget === null) {
+    temas.style.display = "none";
+  } else {
+    return;
+  }
+});
 let temaActual = DIA_THEME_NAME;
 
-botonTemas.addEventListener("focusout", function () {
-  const sailorDay = document.getElementById("themeId");
+// botonTemas.addEventListener("focusout", function () {
+//   const sailorDay = document.getElementById("themeId");
 
-  if (temaActual === DIA_THEME_NAME) {
-    sailorDay.setAttribute("href", linkNight);
+//   if (temaActual === DIA_THEME_NAME) {
+//     sailorDay.setAttribute("href", linkNight);
 
-    temaActual = NOCHE_THEME_NAME;
-  } else {
-    sailorDay.setAttribute("href", linkDay);
+//     temaActual = NOCHE_THEME_NAME;
+//   } else {
+//     sailorDay.setAttribute("href", linkDay);
 
-    temaActual = DIA_THEME_NAME;
-  }
+//     temaActual = DIA_THEME_NAME;
+//   }
 
-  temas.style.display = "none";
-});
+//   temas.style.display = "none";
+// });
 
 //////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////// TENDENCIA /////////////////////////////////////
@@ -168,53 +190,42 @@ function traeGifSearchYagregarTendencia(palabra, limite = 20, callback) {
       if (callback) {
         callback();
       }
-
-           
-      
     })
     .catch(function (error) {
       console.log(error);
     });
 }
 const grillaSugeridos = document.getElementById("grilla-sugeridos");
-console.log('el boton', grillaSugeridos.children);
+console.log("el boton", grillaSugeridos.children);
 
 for (let index = 0; index < grillaSugeridos.children.length; index++) {
   const div = grillaSugeridos.children[index];
-  const botonVerMas = div.children[1]
-  
-  botonVerMas.addEventListener('click', function(){
+  const botonVerMas = div.children[1];
+
+  botonVerMas.addEventListener("click", function () {
     const texto = div.children[0].children[0].textContent;
-    
-    let regexp = new RegExp('#([^\\s]*)','g');
-    textoSinHashtag = texto.replace(regexp, '');
-    console.log(textoSinHashtag)
+
+    let regexp = new RegExp("#([^\\s]*)", "g");
+    textoSinHashtag = texto.replace(regexp, "");
+    console.log(textoSinHashtag);
     traeGifSearchYagregarTendencia(textoSinHashtag);
     cambiarNombreSpanTendencia(textoSinHashtag);
   });
-
 }
 
-function setearTituloSugeridos(param){
-
-    for (let i =0; i < botonVerMasGrillas; i++){
+function setearTituloSugeridos(param) {
+  for (let i = 0; i < botonVerMasGrillas; i++) {
     let botones = botonVerMasGrillas[i];
-  
-      botones.textContent = param[i].title;
 
-          
-  
-    }
-    
-};
-
+    botones.textContent = param[i].title;
+  }
+}
 
 function cambiarNombreSpanTendencia(valor) {
   let palabraTitulo = document.getElementById("tendencia").children[0];
 
   palabraTitulo.textContent = valor;
 }
-
 
 function agregaGifsaTendencia(data) {
   let bloqueTendencias = document.getElementById("grillaTendencia");
@@ -228,8 +239,6 @@ function agregaGifsaTendencia(data) {
     section.style.backgroundPosition = "center";
   }
 }
-
-
 
 traeGifSearchYagregarTendencia();
 
@@ -247,7 +256,7 @@ function traerGifsSugeridas(valor) {
 
     .then((param) => {
       let imagenes = param.data;
-      
+
       //console.log('leeme',param.data)
       setearSugueridos(imagenes);
       setearTituloSugeridos(imagenes);
@@ -259,10 +268,7 @@ function traerGifsSugeridas(valor) {
     });
 }
 
-
 function setearSugueridos(param) {
- 
-
   for (let i = 0; i < grillaSugeridos.children.length; i++) {
     const div = grillaSugeridos.children[i];
     const card = div.children[0];
@@ -276,30 +282,33 @@ function setearSugueridos(param) {
   }
 }
 
-
 traerGifsSugeridas();
 
 //////////////// Link página ///////////////
 
-let locationMisGifs = document.getElementById('misGifs');
-let locationCreateGifs = document.getElementById('createGifs');
+let locationMisGifs = document.getElementById("misGifs");
+let locationCreateGifs = document.getElementById("createGifs");
 
-locationMisGifs.setAttribute('href', window.location.origin + '/html/index-crear-g.html');
-locationCreateGifs.setAttribute('href', window.location.origin + '/html/index-crear-g.html');
-
+locationMisGifs.setAttribute(
+  "href",
+  window.location.origin + "/html/index-crear-g.html"
+);
+locationCreateGifs.setAttribute(
+  "href",
+  window.location.origin + "/html/index-crear-g.html"
+);
 
 /////////////////////////// VISITAS //////////////////////////////
 
-let tituloPagina = document.getElementById('h2Encabezado');
-let numeroVisitas = document.getElementById('visitas');
+let tituloPagina = document.getElementById("h2Encabezado");
+let numeroVisitas = document.getElementById("visitas");
 
-console.log( 'leem' , numeroVisitas);
+console.log("leem", numeroVisitas);
 
+let count = 100.0;
 
-let count = 100.000;
-  
 setInterval(() => {
-    numeroVisitas.textContent = numeroVisitas[count];
-    count++;
-
-    }),500;
+  numeroVisitas.textContent = numeroVisitas[count];
+  count++;
+}),
+  500;

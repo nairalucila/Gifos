@@ -78,6 +78,12 @@ body {
   font-size: $font-size;
   text-decoration: none;
   box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  cursor: pointer;
+}
+
+.boton_tema:hover {
+  outline: dotted 2px black;
+  outline-offset: -5px;
 }
 
 .divflechas {
@@ -88,6 +94,11 @@ body {
   height: 34px;
   margin-right: 12px;
   text-align: center;
+
+  &:hover {
+    outline: dotted 2px black;
+    outline-offset: -5px;
+  }
 }
 
 .imagen-select {
@@ -224,6 +235,7 @@ body {
   position: absolute;
   bottom: 18px;
   right: 49px;
+  cursor: pointer;
 }
 
 .contenedorBtnCaptura {
@@ -266,7 +278,7 @@ body {
 .contenedor_btn_funciones {
   display: flex;
   justify-content: flex-start;
-  //margin: 0 1rem 0 1rem;
+  cursor: pointer;
 }
 
 .subir_repetir {
@@ -284,6 +296,7 @@ body {
   font-size: $font-stack;
   font-size: $font-size;
   background-color: #f0e5ee;
+  cursor: pointer;
 
   & :hover {
     background-color: black;
@@ -302,6 +315,7 @@ body {
   font-size: $font-size;
   background-color: #f0e5ee;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .back {
@@ -321,7 +335,7 @@ body {
   background-color: white;
   height: 25px;
   box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
-  position: absolute;
+  position: relative;
 }
 
 .timerDisplay {
@@ -378,7 +392,7 @@ body {
   background: #b4b4b4;
   //box-shadow: inset -2px -2px 0 0 gray, inset 2px 2px 0 0 #000000;
   position: relative;
-  left: 117px;
+  left: 21px; //117
 }
 
 .timerBarSubiendo {
@@ -458,6 +472,12 @@ body {
   box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   margin: 0 auto;
   position: relative;
+  top: 10px;
+  //z-index: 1000;
+}
+
+.previewDisplay {
+  display: none;
 }
 
 .preview_titulo {
@@ -489,7 +509,6 @@ body {
   justify-content: space-around;
   flex-direction: column;
   & h2 {
-
     font-size: 18px;
     text-align: center;
   }
@@ -503,6 +522,7 @@ body {
   box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
   font-family: $font-stack;
   font-size: $font-size;
+  cursor: pointer;
 }
 
 #video_preview {
@@ -510,5 +530,4 @@ body {
   height: 191px;
   background-position: center;
   background-size: contain;
-
 }

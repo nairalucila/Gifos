@@ -26,11 +26,11 @@ body {
   font-family: $font-stack;
 }
 
-#sailorNight{
+#sailorNight {
   display: none;
 }
 
-.logo_dark{
+.logo_dark {
   visibility: hidden;
 }
 
@@ -78,24 +78,12 @@ body {
   font-size: $font-size;
   margin: 12px;
   text-decoration: none;
-
-  & :hover {
-    background-color: #e6bbe2;
-    border: solid 1px;
-    border-style: dotted;
-    width: 144px;
-    height: 35px;
-  }
 }
 
 .button-create:hover {
-  background: #e6bbe2;
-  border: 1px solid #110038;
-  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-  width: 140px;
-  height: 32px;
-  border: solid 1px;
-  border-style: dotted;
+  outline: dotted 2px black;
+  outline-offset: -5px;
+  background-color: #e6bbe2;
 }
 
 .button-create > a {
@@ -109,12 +97,9 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
-  
-  
 }
 .contenedor_uno {
   display: inline-flex;
-  
 }
 
 .boton_tema {
@@ -126,6 +111,12 @@ body {
   font-size: $font-size;
   text-decoration: none;
   box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+
+  &:hover {
+    outline: dotted 2px black;
+    outline-offset: -5px;
+    background-color: #e6bbe2;
+  }
 }
 
 .divflechas {
@@ -136,6 +127,12 @@ body {
   height: 34px;
   margin-right: 12px;
   text-align: center;
+}
+
+.divflechas:hover {
+  outline: dotted 1px black;
+  outline-offset: -5px;
+  background-color: #e6bbe2;
 }
 
 .imagen-select {
@@ -167,9 +164,8 @@ body {
   }
 }
 
-.sailor_botones:hover{
-      border: solid 0.2px #CCA6C9;
-  
+.sailor_botones:hover {
+  border: solid 0.2px #cca6c9;
 }
 //------
 
@@ -355,12 +351,10 @@ body {
   background-position: center;
 }
 
-.card:hover{
+.card:hover {
   background-color: black;
   outline: dotted 2px black;
-  outline-offset: - 5px;
-  
-
+  outline-offset: -5px;
 }
 
 .card-one {
@@ -381,7 +375,7 @@ body {
     color: white;
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow:hidden;
+    overflow: hidden;
   }
 }
 
@@ -411,7 +405,7 @@ body {
     box-shadow: inset -2px -2px 0 0 #284f99, inset 2px 2px 0 0 #ffffff;
     cursor: pointer;
     outline: dotted 2px black;
-    outline-offset: - 4px;
+    outline-offset: -4px;
   }
 }
 
@@ -426,20 +420,9 @@ body {
   box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   border: solid 1px;
   border-color: #ffffff;
-  }
+}
 
-  .card_t:hover{
-    outline: dotted 2px black;
-    outline-offset: - 6px;
-
-  }
-// .trend-grid {
-//     display: inline-grid;
-//     grid-template-columns: 280px 280px 280px 280px;
-//     column-gap: 25px;
-//     height: 280px;
-//     // position: relative;
-//     // left: 6.4rem;
-//     padding-top: 2rem;
-
-// }
+.card_t:hover {
+  outline: dotted 2px black;
+  outline-offset: -6px;
+}

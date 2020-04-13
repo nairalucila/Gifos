@@ -104,6 +104,15 @@ function startCamera() {
 let videoData = [];
 let isRecording = false;
 
+/////// REPETIR CAPTURA ///////////////////////
+
+let repetirCaptura = document.getElementById("repetir");
+
+repetirCaptura.addEventListener("click", function (e) {
+  window.location.reload()
+ 
+});
+
 function record(stream) {
   video.srcObject = stream; //lo q tome de la camara lo pasa como string
   video.play();
@@ -118,7 +127,7 @@ function record(stream) {
 
     mediaRecorder = new RecordRTC(stream, {
       type: "gif",
-      frameRate: 500,
+      frameRate: 300,
       width: 832,
       height: 434,
       onGifRecordingStarted: function (e) {
@@ -160,6 +169,7 @@ botonListo.addEventListener("click", function () {
 
 let botonSubir = document.getElementById("boton_subir");
 let botonRepetir = document.getElementById("repetir");
+const contenedorPreview = document.createElement("div");
 
 function stopRecordingCallback(e) {
   mediaRecorder.camera.stop();
@@ -171,7 +181,7 @@ function stopRecordingCallback(e) {
   video.style.display = "none";
 
   // creamos contenedor para el preview
-  const contenedorPreview = document.createElement("div");
+
   const contenedorPreviewUltimo = document.getElementById("video_preview");
 
   // lo agregamos como hijo al contenedorPreview
@@ -193,12 +203,14 @@ function stopRecordingCallback(e) {
 
   console.log(form, "FORM");
 
-  //////
+  let divPlay = document.getElementById("play");
 
   botonSubir.addEventListener("click", function () {
     esconderBarraDeCarga();
     seccionCargaGif.style.display = "block";
+    divPlay.style.display = "none";
 
+    let previewContenedor = document.getElementById("preview_contenedor");
     contenedorPreview.classList.remove("preview-video");
 
     let barraDos = document.getElementById("barraSubiendo");
@@ -206,7 +218,9 @@ function stopRecordingCallback(e) {
     enviarGiphy(form) //cuando se hace click en boton subir - se ejcuta la funcion async que trae los datos del fetch con method post y body
       .then((rep) => {
         traerGifGuardarGaleria(rep.data.id);
+        previewContenedor.style.display = "block";
         seccionCargaGif.style.display = "none";
+        contenedorCrearGif.style.display = "none";
       }); //aca accedemos al id del gif y se lo pasamos a la fun que guarda ls
 
     // ocultar boton subir

@@ -76,23 +76,10 @@ body {
   text-decoration: none;
 }
 
-.button-create :hover {
-  background-color: #e6bbe2;
-  border: solid 1px;
-  border-style: dotted;
-  width: 144px;
-  height: 35px;
-}
-
 .button-create:hover {
-  background: #e6bbe2;
-  border: 1px solid #110038;
-  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-  width: 140px;
-  height: 32px;
-  border: solid 1px;
-  border-style: dotted;
+  outline: dotted 2px black;
+  outline-offset: -5px;
+  background-color: #e6bbe2;
 }
 
 .button-create > a {
@@ -129,6 +116,12 @@ body {
           box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 }
 
+.boton_tema:hover {
+  outline: dotted 2px black;
+  outline-offset: -5px;
+  background-color: #e6bbe2;
+}
+
 .divflechas {
   background: #f7c9f3;
   border: 1px solid #110038;
@@ -138,6 +131,12 @@ body {
   height: 34px;
   margin-right: 12px;
   text-align: center;
+}
+
+.divflechas:hover {
+  outline: dotted 1px black;
+  outline-offset: -5px;
+  background-color: #e6bbe2;
 }
 
 .imagen-select {
@@ -174,7 +173,7 @@ body {
 }
 
 .sailor_botones:hover {
-  border: solid 0.2px #CCA6C9;
+  border: solid 0.2px #cca6c9;
 }
 
 .miGuifos {
