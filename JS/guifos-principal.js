@@ -115,13 +115,19 @@ const btnSDay = document.getElementById("sailorD");
 const btnSNight = document.getElementById("sailorN");
 const linkHojaEstilos = document.getElementById("themeId");
 
+let linkLogoDark = 'assets/gifOF_logo_dark.png';
+let linkLogoLight = 'assets/gifOF_logo.png';
+let logoDarkImg = document.getElementById('logoDarkImg');
+
 function traerTemaLocalStorage() {
   let temaAhora = localStorage.getItem("tema");
 
   if (temaAhora === "NIGHT") {
     linkHojaEstilos.setAttribute("href", linkNight);
+    logoDarkImg.setAttribute('src', linkLogoDark);
   } else {
     linkHojaEstilos.setAttribute("href", linkDay);
+    logoDarkImg.setAttribute('src', linkLogoLight);
   }
 }
 traerTemaLocalStorage();
@@ -129,11 +135,14 @@ traerTemaLocalStorage();
 btnSDay.addEventListener("click", function () {
   linkHojaEstilos.setAttribute("href", linkDay);
   temas.style.display = "none";
+  logoDarkImg.setAttribute('src', linkLogoLight);
   localStorage.setItem("tema", "DEFAULT");
 });
 btnSNight.addEventListener("click", function () {
   linkHojaEstilos.setAttribute("href", linkNight);
   temas.style.display = "none";
+  logoDarkImg.setAttribute('src', linkLogoDark);
+
   localStorage.setItem("tema", "NIGHT");
 });
 
