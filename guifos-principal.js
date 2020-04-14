@@ -272,10 +272,10 @@ let locationCreateGifs = document.getElementById("createGifs");
 
 locationMisGifs.setAttribute(
   "href",
-  window.location.origin + "index-crear-g.html"
+  window.location.origin + "/index-crear-g.html"
 );
 locationCreateGifs.setAttribute(
   "href",
-  window.location.origin + "index-crear-g.html"
+  window.location.origin + "/index-crear-g.html"
 );
 
