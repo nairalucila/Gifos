@@ -278,17 +278,3 @@ locationCreateGifs.setAttribute(
   "href",
   window.location.origin + "/html/index-crear-g.html"
 );
-
-/////////////////////////// VISITAS ////////////////////////
-
-let tituloPagina = document.getElementById("h2Encabezado");
-let numeroVisitas = document.getElementById("visitas");
-
-console.log("leem", numeroVisitas);
-
-let count = 100;
-
-setInterval(() => {
-  numeroVisitas.textContent = numeroVisitas[count];
-  count++;
-}, 500);
