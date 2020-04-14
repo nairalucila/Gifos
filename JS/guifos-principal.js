@@ -286,10 +286,9 @@ let numeroVisitas = document.getElementById("visitas");
 
 console.log("leem", numeroVisitas);
 
-let count = 100.0;
+let count = 100;
 
 setInterval(() => {
   numeroVisitas.textContent = numeroVisitas[count];
   count++;
-}),
-  500;
+}, 500);
