@@ -1,0 +1,588 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #fff4fd;
+  overflow-x: hidden;
+  font-family: "Chakra Petch";
+}
+
+.block-title {
+  display: block;
+  width: 100%;
+  height: 32px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#4180f6), to(#f7c9f3));
+  background-image: linear-gradient(to right, #4180f6, #f7c9f3);
+  border: solid 0.5px;
+  border-color: black;
+  margin: auto;
+}
+
+.block-title h3 {
+  color: white;
+  margin: 4px 0 0 10px;
+  font-family: "Chakra Petch";
+  font-size: 16px;
+}
+
+.encabezado {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 3rem;
+  height: 120px;
+}
+
+.botones {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding-bottom: 2rem;
+}
+
+.boton_selection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.contenedor_uno {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.boton_tema {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  height: 36px;
+  width: 144px;
+  font-family: "Chakra Petch";
+  font-size: 16px;
+  text-decoration: none;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  cursor: pointer;
+}
+
+.boton_tema:hover {
+  outline: dotted 2px black;
+  outline-offset: -5px;
+}
+
+.divflechas {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  width: 36px;
+  height: 34px;
+  margin-right: 12px;
+  text-align: center;
+}
+
+.divflechas:hover {
+  outline: dotted 2px black;
+  outline-offset: -5px;
+}
+
+.imagen-select {
+  padding-top: 14px;
+}
+
+.temas {
+  width: 172px;
+  background-color: #e6e6e6;
+  height: 91px;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 5px;
+  position: absolute;
+  bottom: -100px;
+}
+
+.sailor_botones {
+  height: 36px;
+  width: 150px;
+  text-align: left;
+  margin: 5px 0 2px 2px;
+  padding-left: 2px;
+}
+
+.sailor_botones span {
+  font-family: "Chakra Petch";
+  font-size: 16px;
+}
+
+.sailor_botones:hover {
+  border: solid 0.2px #cca6c9;
+}
+
+.sailor_botones:hover {
+  border: solid 0.2px #cca6c9;
+}
+
+.contenedor {
+  background-color: #e6e6e6;
+  width: 860px;
+  height: 548px;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  margin: 0 auto;
+  position: relative;
+}
+
+.titulo {
+  height: 24px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#4180f6), to(#f7c9f3));
+  background-image: linear-gradient(to right, #4180f6, #f7c9f3);
+  margin: auto;
+}
+
+.titulo span {
+  font-family: "Chakra Petch";
+  font-size: 16px;
+  margin-left: 4px;
+  color: white;
+}
+
+.contenedorItems {
+  margin: 4rem 0 0 2.5rem;
+  height: 65%;
+}
+
+.contenedorItems h4 {
+  margin-left: 1rem;
+}
+
+.instrucciones > ol > li {
+  list-style-type: none;
+  margin-bottom: 20px;
+}
+
+.instrucciones > p {
+  margin-bottom: 20px;
+}
+
+.hide {
+  display: none;
+  color: white;
+}
+
+.divListo {
+  display: none;
+  background: #ff6161;
+  border: 1px solid #993a3a;
+  -webkit-box-shadow: inset -1px -1px 0 0 #eed4ec, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #eed4ec, inset 1px 1px 0 0 #ffffff;
+  width: 36px;
+  height: 33px;
+  text-align: center;
+}
+
+.contenedorCargaGif {
+  background-color: white;
+  width: 670px;
+  height: 300px;
+  border: 1px solid #979797;
+  margin: auto;
+}
+
+.oculto {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.instrucciones {
+  text-align: left;
+  margin-left: 4rem;
+}
+
+.contenedor_botones {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 2rem 3rem 0 0;
+}
+
+.cancelar {
+  width: 144px;
+  height: 36px;
+  background-color: #fff4fd;
+  margin-right: 1rem;
+  font-family: "Chakra Petch";
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.comenzar {
+  width: 144px;
+  height: 36px;
+  background-color: #f7c9f3;
+  font-family: "Chakra Petch";
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.boton_captura {
+  display: inline-block;
+  visibility: hidden;
+  position: absolute;
+  bottom: 18px;
+  right: 49px;
+  cursor: pointer;
+}
+
+.contenedorBtnCaptura {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+}
+
+.divCamara {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  width: 36px;
+  height: 33px;
+  text-align: center;
+}
+
+.boton_cam {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  height: 35px;
+  width: 144px;
+  font-family: "Chakra Petch";
+  font-size: 16px;
+  text-decoration: none;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+}
+
+.imagen-cam-select {
+  padding: 8px 5px 5px 5px;
+}
+
+.video {
+  display: none;
+  margin: 0 auto;
+}
+
+.contenedor_btn_funciones {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  cursor: pointer;
+}
+
+.subir_repetir {
+  position: absolute;
+  right: 31px;
+  bottom: 12px;
+}
+
+.subir {
+  position: relative;
+  left: 2px;
+  width: 140px;
+  height: 36px;
+  text-align: center;
+  font-size: "Chakra Petch";
+  font-size: 16px;
+  background-color: #f0e5ee;
+  cursor: pointer;
+}
+
+.subir :hover {
+  background-color: black;
+  outline: dotted 2px;
+  outline-offset: -8px;
+}
+
+.repetir {
+  position: relative;
+  left: 2px;
+  width: 140px;
+  height: 36px;
+  text-align: center;
+  font-size: "Chakra Petch";
+  font-size: 16px;
+  background-color: #f0e5ee;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.back {
+  display: none;
+}
+
+.ultimo_boton {
+  display: none;
+}
+
+.up {
+  display: none;
+}
+
+.timer {
+  width: 110px;
+  background-color: white;
+  height: 25px;
+  -webkit-box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+  position: relative;
+}
+
+.timerDisplay {
+  display: none;
+}
+
+.trend {
+  display: block;
+  width: 1194px;
+  height: 32px;
+  margin: auto;
+  background-color: white;
+  border: solid 1px;
+  border-color: #997c96;
+  margin-top: 60px;
+}
+
+.trend h3 {
+  padding: 5px;
+  font-family: "Chakra Petch";
+  font-size: 15px;
+}
+
+.preview-video {
+  display: block;
+  margin: 0 auto;
+  width: 830px;
+  height: 432px;
+}
+
+.sectionContador {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: absolute;
+  bottom: 17px;
+  left: 14px;
+}
+
+.play {
+  background-color: #f7c9f3;
+  width: 23px;
+  height: 23px;
+  border: 1px solid black;
+  margin-right: 2px;
+}
+
+.play img {
+  margin: 6px 5px 5px 9px;
+}
+
+.timerBar {
+  width: auto;
+  display: none;
+  background: #b4b4b4;
+  position: relative;
+  left: 21px;
+}
+
+.timerBarSubiendo {
+  width: auto;
+  display: inline-block;
+  margin-top: 36px;
+  background: #b4b4b4;
+}
+
+.barra {
+  width: 240px;
+  height: 24px;
+  border: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.progreso {
+  background-color: #999999;
+  width: 12px;
+  height: 20px;
+  border: 1px solid white;
+}
+
+.seccion_carga_gif {
+  background-color: white;
+  width: 840px;
+  height: 400px;
+  display: none;
+  position: absolute;
+  left: 10px;
+  bottom: 116px;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #e6e6e6;
+          box-shadow: inset -2px -2px 0 0 #e6e6e6;
+  text-align: center;
+}
+
+.seccion_carga_gif > img {
+  margin-top: 82px;
+}
+
+.seccion_carga_gif > p > span {
+  text-decoration: line-through;
+}
+
+.container-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 288px 288px 288px 288px;
+      grid-template-columns: 288px 288px 288px 288px;
+  gap: 15px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 1.5rem;
+}
+
+.card_t {
+  text-align: center;
+  width: 288px;
+  height: 313px;
+  margin: 5px;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  border: solid 1px;
+  border-color: #ffffff;
+  background-position: center;
+}
+
+.preview {
+  background-color: #e6e6e6;
+  width: 720px;
+  height: 391px;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  margin: 0 auto;
+  position: relative;
+  top: 10px;
+}
+
+.previewDisplay {
+  display: none;
+}
+
+.preview_titulo {
+  width: 721px;
+  height: 28px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#4180f6), to(#f7c9f3));
+  background-image: linear-gradient(to right, #4180f6, #f7c9f3);
+  -webkit-box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #ffffff;
+  margin: auto;
+}
+
+.preview_titulo span {
+  font-family: "Chakra Petch";
+  font-size: 16px;
+  margin-left: 6px;
+  margin-top: 6px;
+  color: white;
+}
+
+.contenedor_interno {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 20px;
+}
+
+.hijoDos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.hijoDos h2 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.botones_interno {
+  background-color: #fff4fd;
+  width: 256px;
+  height: 36px;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  font-family: "Chakra Petch";
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#video_preview {
+  width: 365px;
+  height: 191px;
+  background-position: center;
+  background-size: contain;
+}
+/*# sourceMappingURL=vista-crear-g-light.css.map */
