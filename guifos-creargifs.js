@@ -385,6 +385,6 @@ function esconderBarraDeCarga() {
 
 let linkaPaginaPrincipal = document.getElementById("back");
 
-linkaPaginaPrincipal.setAttribute("href", window.location.origin);
+linkaPaginaPrincipal.setAttribute("href", window.location.origin + '/Gifos');
 
 
