@@ -1,9 +1,9 @@
 ///////////////// TEMAS  /////////////////////
 
-const LINK_DIA = "../CSS/vista-crear-g-light.css";
-let LINK_NOCHE = "../CSS/vista-crear-g-dark.css";
-const link_logo_dark = "/assets/gifOF_logo_dark.png";
-const link_logo_light = "/assets/gifOF_logo.png";
+const LINK_DIA = "vista-crear-g-light.css";
+let LINK_NOCHE = "vista-crear-g-dark.css";
+const link_logo_dark = "gifOF_logo_dark.png";
+const link_logo_light = "gifOF_logo.png";
 let logoTag = document.getElementById("logoTag");
 
 //desplegar botonera

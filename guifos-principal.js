@@ -99,8 +99,8 @@ campoBusqueda.addEventListener("focusout", () => {
 
 //////////////////////// TEMA /////////////////////
 
-const linkNight = "../CSS/vista-nocturna.css";
-const linkDay = "../CSS/vista-normal.css";
+const linkNight = "vista-nocturna.css";
+const linkDay = "vista-normal.css";
 const DIA_THEME_NAME = "DIAS";
 const NOCHE_THEME_NAME = "NOCHE";
 
@@ -109,8 +109,8 @@ const btnSDay = document.getElementById("sailorD");
 const btnSNight = document.getElementById("sailorN");
 const linkHojaEstilos = document.getElementById("themeId");
 
-let linkLogoDark = "assets/gifOF_logo_dark.png";
-let linkLogoLight = "assets/gifOF_logo.png";
+let linkLogoDark = "gifOF_logo_dark.png";
+let linkLogoLight = "gifOF_logo.png";
 let logoDarkImg = document.getElementById("logoDarkImg");
 
 function traerTemaLocalStorage() {
