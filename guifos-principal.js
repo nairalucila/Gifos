@@ -1,7 +1,7 @@
 ///////////// ELEMENTOS /////////////
 
 const API_KEY = "DsV5wrnJyENgZWApbRea3zpRa7YSeHgd";
-const API_URL_SEARCH = "http://api.giphy.com/v1/gifs/search";
+const API_URL_SEARCH = "https://api.giphy.com/v1/gifs/search";
 
 const titulosSugeridos = document.getElementsByClassName("card-one");
 const temas = document.getElementById("temas");
@@ -157,7 +157,7 @@ let temaActual = DIA_THEME_NAME;
 
 function traeGifSearchYagregarTendencia(palabra, limite = 20, callback) {
   const urlTendencia =
-    "http://api.giphy.com/v1/gifs/search?q=" +
+    "https://api.giphy.com/v1/gifs/search?q=" +
     palabra +
     "&api_key=" +
     API_KEY +
