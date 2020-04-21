@@ -90,7 +90,7 @@ let botonCamara = document.getElementById("contenedorBtnCaptura");
 let botonListo = document.getElementById("boton_listo");
 let divListo = document.getElementById("divListo");
 
-let mediaRecorder; 
+let mediaRecorder;
 
 function startCamera() {
   navigator.mediaDevices
@@ -99,7 +99,7 @@ function startCamera() {
       video: { width: 832, height: 434 },
     })
     .then((rec) => record(rec))
-    .catch((err) => console.log(err));
+    .catch((err) => console.error(err));
 }
 let videoData = [];
 let isRecording = false;
@@ -109,12 +109,11 @@ let isRecording = false;
 let repetirCaptura = document.getElementById("repetir");
 
 repetirCaptura.addEventListener("click", function (e) {
-  window.location.reload()
- 
+  window.location.reload();
 });
 
 function record(stream) {
-  video.srcObject = stream; 
+  video.srcObject = stream;
   video.play();
 
   botonCaptura.addEventListener("click", function (ev) {
@@ -130,9 +129,7 @@ function record(stream) {
       frameRate: 300,
       width: 832,
       height: 434,
-      onGifRecordingStarted: function (e) {
-        console.log("esta grabando");
-      },
+      onGifRecordingStarted: function (e) {},
     });
 
     mediaRecorder.startRecording();
@@ -156,11 +153,8 @@ botonListo.addEventListener("click", function () {
   let barra = document.getElementById("barra");
   arrancarBarraDeCarga(barra);
 
-  console.log("listoo");
-
   mediaRecorder.stopRecording(stopRecordingCallback);
 
-  
   stopedInterval = true;
 });
 
@@ -174,7 +168,7 @@ function stopRecordingCallback(e) {
   mediaRecorder.camera.stop();
 
   quitarBotonListo();
- 
+
   // ocultar video del Dom
   video.style.display = "none";
 
@@ -199,8 +193,6 @@ function stopRecordingCallback(e) {
   let form = new FormData();
   form.append("file", mediaRecorder.getBlob(), "miGif.gif"); //a esta funcion se le pasan datos y el get blob contiene el gif
 
-  console.log(form, "FORM");
-
   let divPlay = document.getElementById("play");
 
   botonSubir.addEventListener("click", function () {
@@ -213,13 +205,12 @@ function stopRecordingCallback(e) {
 
     let barraDos = document.getElementById("barraSubiendo");
     arrancarBarraDeCarga(barraDos);
-    enviarGiphy(form) 
-      .then((rep) => {
-        traerGifGuardarGaleria(rep.data.id);
-        previewContenedor.style.display = "block";
-        seccionCargaGif.style.display = "none";
-        contenedorCrearGif.style.display = "none";
-      }); 
+    enviarGiphy(form).then((rep) => {
+      traerGifGuardarGaleria(rep.data.id);
+      previewContenedor.style.display = "block";
+      seccionCargaGif.style.display = "none";
+      contenedorCrearGif.style.display = "none";
+    });
 
     // ocultar boton subir
   });
@@ -239,7 +230,7 @@ function quitarBotonListo() {
 ////////////////// FETCH /////////////////////////////
 
 const API_KEY = "DsV5wrnJyENgZWApbRea3zpRa7YSeHgd";
-const API_URL_UPLOAD = "https://upload.giphy.com/v1/gifs";
+const API_URL_UPLOAD = "http://upload.giphy.com/v1/gifs";
 
 async function enviarGiphy(form) {
   let response = await fetch(API_URL_UPLOAD + "?api_key=" + API_KEY, {
@@ -257,7 +248,7 @@ async function enviarGiphy(form) {
 let embedUrl;
 let gifCreadoBlob;
 
-const API_URL_ENDPOINT = "https://api.giphy.com/v1/gifs/";
+const API_URL_ENDPOINT = "http://api.giphy.com/v1/gifs/";
 
 function traerGifGuardarGaleria(gif) {
   fetch(API_URL_ENDPOINT + gif + "?api_key=" + API_KEY)
@@ -268,8 +259,6 @@ function traerGifGuardarGaleria(gif) {
     .then((rep) => {
       let gifs = obtenerGifsLS();
       gifs.push(rep);
-
-      console.log("los gifs", rep);
 
       embedUrl = rep.data.images.downsized.url;
 
@@ -299,8 +288,6 @@ function iterarYAgregarEl() {
     grillaMisGifos.innerHTML = "";
   }
 
-  console.log("ver", gifs);
-
   gifs.forEach((gif) => {
     let div = document.createElement("div");
     div.classList.add("card_t");
@@ -323,7 +310,6 @@ function getTimer() {
   timer.classList.remove("timerDisplay");
 
   let incioContador = 0;
-  console.log("get timer ");
 
   let interval = setInterval(() => {
     incioContador++;
@@ -385,6 +371,30 @@ function esconderBarraDeCarga() {
 
 let linkaPaginaPrincipal = document.getElementById("back");
 
-linkaPaginaPrincipal.setAttribute("href", window.location.origin + '/Gifos');
+let direccion = function () {
+  const locationArray = window.location.href.split("/");
+  locationArray.length = locationArray.length - 1;
+  locationArray.push("index.html");
 
+  return locationArray.join("/");
+};
 
+linkaPaginaPrincipal.setAttribute("href", direccion());
+
+///////////// VISITOR COUNTER //////////////
+
+//////////////// CONTADOR DE VISITAS /////////////////
+
+let visitorCounter = document.getElementById("visitorCounter");
+
+let n = localStorage.getItem("on_load_counter");
+
+if (n === null) {
+  n = 0;
+}
+
+n++;
+
+localStorage.setItem("on_load_counter", n);
+
+visitorCounter.innerHTML = n;
