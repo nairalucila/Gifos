@@ -230,7 +230,7 @@ function quitarBotonListo() {
 ////////////////// FETCH /////////////////////////////
 
 const API_KEY = "DsV5wrnJyENgZWApbRea3zpRa7YSeHgd";
-const API_URL_UPLOAD = "http://upload.giphy.com/v1/gifs";
+const API_URL_UPLOAD = "https://upload.giphy.com/v1/gifs";
 
 async function enviarGiphy(form) {
   let response = await fetch(API_URL_UPLOAD + "?api_key=" + API_KEY, {
@@ -248,7 +248,7 @@ async function enviarGiphy(form) {
 let embedUrl;
 let gifCreadoBlob;
 
-const API_URL_ENDPOINT = "http://api.giphy.com/v1/gifs/";
+const API_URL_ENDPOINT = "https://api.giphy.com/v1/gifs/";
 
 function traerGifGuardarGaleria(gif) {
   fetch(API_URL_ENDPOINT + gif + "?api_key=" + API_KEY)
