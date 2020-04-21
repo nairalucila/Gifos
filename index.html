@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link id="themeId" rel="stylesheet" href="../CSS/vista-normal.css">
 
+    <link id="themeId" rel="stylesheet" href="CSS/vista-normal.css">
 
     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/9dd00af5f8.js" crossorigin="anonymous"></script>
@@ -18,7 +17,8 @@
 
         <!-- seccion 1 -->
         <section class="block-title">
-            <h2 id="h2Encabezado">Bienvenidos/as a Gifos.com------Donde los Gifs están.////// Número de visitas: 12.765.803</h2>
+            <h2 id="h2Encabezado">Bienvenidos/as a Gifos.com------Donde los Gifs están. ////// Número de visitas: <span
+                    id="visitorCounter"> 12.765.803 </span></h2>
         </section>
 
         <!-- logo y botones -->
@@ -26,9 +26,8 @@
         <div class="encabezado">
 
             <div id="logos">
-                <img id="logoDarkImg" class="logo_light" src="../assets/gifOF_logo.png" alt="logo-normal">
-                
-               
+                <img id="logoDarkImg" class="logo_light" src="assets/gifOF_logo.png" alt="logo-normal">
+
             </div>
 
             <div class="botones">
@@ -39,29 +38,27 @@
                 </div>
 
                 <!-- boton select -->
-                
-                    <div class="boton_selection">
 
-                        <div class="contenedor_uno">
+                <div class="boton_selection">
 
-                            <button class="boton_tema" id="temabtn">Temas</button>
+                    <div class="contenedor_uno">
 
-                            <div class="divflechas" id="divflechas">
+                        <button class="boton_tema" id="temabtn">Temas</button>
 
-                                <img class="imagen-select" src="assets/dropdown.svg" alt="arrow_dropdown_web_theme">
+                        <div class="divflechas" id="divflechas">
 
-                            </div>
+                            <img class="imagen-select" src="assets/dropdown.svg" alt="arrow_dropdown_web_theme">
 
-                        </div>
-
-                        <div class="temas" id="temas">
-                            <button id="sailorD" class="sailor_botones"> <span> Sailor day </span></button>
-                            <button id="sailorN" class="sailor_botones"> <span> Sailor night</span></button>
                         </div>
 
                     </div>
 
+                    <div class="temas" id="temas">
+                        <button id="sailorD" class="sailor_botones"> <span> Sailor day </span></button>
+                        <button id="sailorN" class="sailor_botones"> <span> Sailor night</span></button>
+                    </div>
 
+                </div>
 
                 <!-- panel mi guif -->
                 <div class="miGuifos">
@@ -74,37 +71,32 @@
 
         <!-- buscador -->
 
-
     </header>
 
     <div class="searcher-title" id="formBusqueda">
         <span>Buscar</span>
 
-        <div >
-            
-                <div class="searcher">
-                    <input type="search" id="miBusqueda" name="q" autocomplete="off"
-                        placeholder="BuscarBusca gifs, hashtags, temas, busca lo que quieras…">
-                    <button id="buscador" class="send"> <i class="fas fa-search"></i> Buscar</button>
-                </div>
+        <div>
 
-                <div class="desplegable" id="desplegable">
+            <div class="searcher">
+                <input type="search" id="miBusqueda" name="q" autocomplete="off"
+                    placeholder="BuscarBusca gifs, hashtags, temas, busca lo que quieras…">
+                <button id="buscador" class="send"> <i class="fas fa-search"></i> Buscar</button>
+            </div>
 
-                    <button class="desplegable_boton" id="puppy"><span>
-                            Puppys </span></button>
-                    <button class="desplegable_boton" id="moon"> <span> Sailor Moon
-                        </span> </button>
-                    <button class="desplegable_boton" id="otters"> <span> Baby Otters </span> </button>
+            <div class="desplegable" id="desplegable">
 
-                </div>
-            
+                <button class="desplegable_boton" id="puppy"><span>
+                        Puppys </span></button>
+                <button class="desplegable_boton" id="moon"> <span> Sailor Moon
+                    </span> </button>
+                <button class="desplegable_boton" id="otters"> <span> Baby Otters </span> </button>
 
+            </div>
 
         </div>
 
     </div>
-
-
 
     <!-- sugeridos -->
 
@@ -116,7 +108,6 @@
     <!-- grilla 1 -->
 
     <section class="container-grid" id="grilla-sugeridos">
-
 
         <div class="card" id="card">
 
@@ -131,8 +122,6 @@
 
         </div>
 
-
-
         <div class="card">
             <div class="card-one">
                 <h6>Texto</h6>
@@ -151,7 +140,6 @@
 
             </div>
 
-
             <button class="boton-grid">Ver mas</button>
 
         </div>
@@ -164,11 +152,9 @@
 
             </div>
 
-
             <button class="boton-grid">Ver mas</button>
 
         </div>
-
 
     </section>
 
@@ -178,70 +164,54 @@
     <div id="tendencia" class="trend">
         <p>Tendencias</p>
     </div>
-    
+
     <!-- grilla-2 -->
-        <div class="container-grid" id="grillaTendencia">
+    <div class="container-grid" id="grillaTendencia">
 
-            <div class="card_t">
-
-
-            </div>
-
-            <div class="card_t">
-
-            </div>
-
-            <div class="card_t">
-
-
-            </div>
-
-            <div class="card_t">
-
-
-            </div>
-
-
-            <!-- fin de div 2.1 comienzo del 2.2-->
-
-
-
-            <div class="card_t">
-
-
-            </div>
-
-            <div class="card_t">
-
-            </div>
-
-            <div class="card_t">
-
-
-            </div>
-
-            <div class="card_t">
-
-
-            </div>
-
-
+        <div class="card_t">
+            <div class="hoverDisplay"> <span> </span></div>
         </div>
 
-        <!-- script -->
+        <div class="card_t">
+            <div class="hoverDisplay"><span> </span></div>
+        </div>
 
-        <script src="/JS/guifos-principal.js"></script>
+        <div class="card_t">
+            <div class="hoverDisplay"> <span> </span></div>
+        </div>
 
-        <!-- <script>
-            var button = document.getElementById('miBusqueda');
+        <div class="card_t">
+            <div class="hoverDisplay"> <span> </span></div>
+        </div>
 
-            button.addEventListener('onclick', function () {
-                alert('hiciste click bech')
-            })
-        </script> -->
+
+        <!-- fin de div 2.1 comienzo del 2.2-->
+
+        <div class="card_t">
+            <div class="hoverDisplay"> <span> </span></div>
+        </div>
+
+        <div class="card_t">
+            <div class="hoverDisplay"> <span> </span></div>
+        </div>
+
+        <div class="card_t">
+            <div class="hoverDisplay"> <span> </span></div>
+        </div>
+
+        <div class="card_t">
+            <div class="hoverDisplay"> <span> </span></div>
+        </div>
+
+
+    </div>
+
+    <!-- script -->
+
+    <script src="JS/guifos-principal.js"></script>
+
+
 </body>
 
 
 </html>
-
-

@@ -471,4 +471,20 @@ body {
   outline: dotted 2px black;
   outline-offset: -6px;
 }
+
+.hoverDisplay {
+  width: 285px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#4180f6), to(#ee3efe));
+  background-image: linear-gradient(to right, #4180f6, #ee3efe);
+  display: none;
+  position: relative;
+  top: 288px;
+  margin: auto;
+  color: white;
+  font-weight: 700;
+}
+
+.hoverDisplay span {
+  margin-left: 10px;
+}
 /*# sourceMappingURL=vista-nocturna.css.map */

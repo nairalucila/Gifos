@@ -2,8 +2,8 @@
 
 const LINK_DIA = "../CSS/vista-crear-g-light.css";
 let LINK_NOCHE = "../CSS/vista-crear-g-dark.css";
-const link_logo_dark = "/assets/gifOF_logo_dark.png";
-const link_logo_light = "/assets/gifOF_logo.png";
+const link_logo_dark = "../assets/gifOF_logo_dark.png";
+const link_logo_light = "../assets/gifOF_logo.png";
 let logoTag = document.getElementById("logoTag");
 
 //desplegar botonera
@@ -99,7 +99,7 @@ function startCamera() {
       video: { width: 832, height: 434 },
     })
     .then((rec) => record(rec))
-    .catch((err) => console.log(err));
+    .catch((err) => console.error(err));
 }
 let videoData = [];
 let isRecording = false;
@@ -131,7 +131,6 @@ function record(stream) {
       width: 832,
       height: 434,
       onGifRecordingStarted: function (e) {
-        console.log("esta grabando");
       },
     });
 
@@ -156,7 +155,6 @@ botonListo.addEventListener("click", function () {
   let barra = document.getElementById("barra");
   arrancarBarraDeCarga(barra);
 
-  console.log("listoo");
 
   mediaRecorder.stopRecording(stopRecordingCallback);
 
@@ -199,7 +197,6 @@ function stopRecordingCallback(e) {
   let form = new FormData();
   form.append("file", mediaRecorder.getBlob(), "miGif.gif"); //a esta funcion se le pasan datos y el get blob contiene el gif
 
-  console.log(form, "FORM");
 
   let divPlay = document.getElementById("play");
 
@@ -269,7 +266,6 @@ function traerGifGuardarGaleria(gif) {
       let gifs = obtenerGifsLS();
       gifs.push(rep);
 
-      console.log("los gifs", rep);
 
       embedUrl = rep.data.images.downsized.url;
 
@@ -299,7 +295,6 @@ function iterarYAgregarEl() {
     grillaMisGifos.innerHTML = "";
   }
 
-  console.log("ver", gifs);
 
   gifs.forEach((gif) => {
     let div = document.createElement("div");
@@ -323,7 +318,6 @@ function getTimer() {
   timer.classList.remove("timerDisplay");
 
   let incioContador = 0;
-  console.log("get timer ");
 
   let interval = setInterval(() => {
     incioContador++;
@@ -385,6 +379,30 @@ function esconderBarraDeCarga() {
 
 let linkaPaginaPrincipal = document.getElementById("back");
 
-linkaPaginaPrincipal.setAttribute("href", window.location.origin);
+let direccion = function() {
+  const locationArray = window.location.href.split('/');
+  locationArray.length =  locationArray.length - 2
+  locationArray.push('index.html')
+  console.log(locationArray)
+  return locationArray.join('/')
+} 
 
+linkaPaginaPrincipal.setAttribute("href", direccion());
 
+///////////// VISITOR COUNTER //////////////
+
+//////////////// CONTADOR DE VISITAS /////////////////
+
+let visitorCounter = document.getElementById('visitorCounter');
+
+let n = localStorage.getItem('on_load_counter');
+
+if (n === null) {
+    n = 0;
+}
+
+n++;
+
+localStorage.setItem("on_load_counter", n);
+
+visitorCounter.innerHTML = n;

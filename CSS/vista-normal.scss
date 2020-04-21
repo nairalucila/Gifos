@@ -4,17 +4,6 @@ $font-stack: "Chakra Petch";
 $font-size: 16px;
 $color-textos: #110038;
 
-@mixin botones() {
-  background: #f7c9f3;
-  border: 1px solid #110038;
-  box-shadow: inset -1px -1px 0 0 #997d97;
-  width: 144px;
-  height: 36px;
-  font-family: "Chakra Petch";
-  font-size: 16px;
-  color: #110038;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -167,7 +156,6 @@ body {
 .sailor_botones:hover {
   border: solid 0.2px #cca6c9;
 }
-//------
 
 //botón mis gifs
 
@@ -306,8 +294,7 @@ body {
   background-color: white;
   border: solid 1px;
   border-color: #997c96;
-  //margin-top: 60px;
-
+  
   & p {
     padding: 5px;
     font-family: "Chakra Petch";
@@ -409,7 +396,7 @@ body {
   }
 }
 
-//grilla 2
+//grilla dos
 
 .card_t {
   text-align: center;
@@ -426,3 +413,21 @@ body {
   outline: dotted 2px black;
   outline-offset: -6px;
 }
+
+.hoverDisplay{
+  width: 285px;
+  background-image: linear-gradient(to right, #4180f6, #f7c9f3);
+  display: none;
+  position: relative;
+  top: 288px;
+  margin: auto;
+  color: white;
+  font-weight: 700;
+
+  & span{
+
+    margin-left: 10px;
+
+  }
+
+};
